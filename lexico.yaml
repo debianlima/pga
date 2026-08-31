@@ -1,0 +1,7 @@
+projeto: PGA
+nome: Protocolo de Autogovernanca
+termos:
+  GovernedObject: objeto amplo governado pelo PGA
+  PolicySnapshot: snapshot imutavel de politica e autoridade
+  EvolutionProposal: proposta de evolucao governada
+  HumanPreferenceEvidence: evidencia humana usada como insumo, nao mutacao direta
