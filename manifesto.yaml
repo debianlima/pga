@@ -5,7 +5,20 @@ release_alvo: v1.0.0
 estado_release: triad_ready
 repositorio: debianlima/pga
 skill_projeto: skills/pga/SKILL.md
-trabalho_compartilhado: {}
+trabalho_compartilhado:
+  projeto: pga
+  caminho: /srv/mcp-workspace/pga-work
+  unidade: T-017-PGA-AUXILIAR-CONCILIACAO
+  descricao: reconciliar dependencia PGD apos H01-R2 preservando autoridade e release PGA 1.0
+  agente: redes-terminal-oracle
+  atualizado_em: '2026-08-31T02:27:10-03:00'
+  previsao_termino: '2026-08-31T03:07:10-03:00'
+  zona_exclusao:
+  - manifesto.yaml
+  - README.md
+  - estado.md
+  - tests/verify_project.py
+  - tests/verify_release_1_0.py
 entradas:
 - id: 1
   caminho: README.md
