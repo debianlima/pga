@@ -5,7 +5,19 @@ release_alvo: v1.0.0
 estado_release: triad_ready
 repositorio: debianlima/pga
 skill_projeto: skills/pga/SKILL.md
-trabalho_compartilhado: {}
+trabalho_compartilhado:
+  projeto: pga
+  caminho: /srv/mcp-workspace/u31-doc-suite/pga
+  unidade: U-PGA-03-AUXILIAR-CONSTRUCAO-CONCILIACAO
+  descricao: Incluir papel auxiliar na construcao e conciliacao incremental do PGA,
+    habilitado somente apos o fecho PGD.
+  agente: ChatGPT-Redes
+  atualizado_em: '2026-08-31T04:44:44Z'
+  previsao_termino: '2026-08-31T05:14:44Z'
+  zona_exclusao:
+  - manifesto.yaml
+  - estado.md
+  - tests/verify_project.py
 entradas:
 - id: 1
   caminho: README.md
