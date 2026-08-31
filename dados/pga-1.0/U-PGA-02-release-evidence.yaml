@@ -1,0 +1,35 @@
+schema: pga-1.0-release-evidence-v1
+unit: U-PGA-02-RELEASE-1.0
+release:
+  protocol: PGA
+  version: 1.0.0
+  maturity: homologated
+  source_candidate_head: aa5682fb163a0f4bd2437a6269b3ae6b934f38d6
+ownership:
+  policy: PGA
+  semantic_authorization: PGH
+  runtime: PGD
+  strategic_priority: PGA_normative_only
+policy_snapshot:
+  immutable: true
+  authority_provenance_required: true
+  silent_mutation_forbidden: true
+  self_authority_expansion_forbidden: true
+evolution:
+  plan_before_results: true
+  gates_frozen_before_validation: true
+  rollback_or_deprecation_required: true
+  identity_preserved: true
+protocol_gate_classification: protocol-contract-conformance
+gates:
+  POLICY_SNAPSHOT_IMMUTABLE: PASS
+  AUTHORITY_PROVENANCE_COMPLETE: PASS
+  GOVERNED_OBJECT_IDENTITY_PRESERVED: PASS
+  NO_SILENT_POLICY_MUTATION: PASS
+  NO_SELF_AUTHORITY_EXPANSION: PASS
+  EVOLUTION_PLAN_APPROVED_BEFORE_RESULTS: PASS
+  GATES_FROZEN_BEFORE_VALIDATION: PASS
+  ROLLBACK_OR_DEPRECATION_DEFINED: PASS
+  CULTURAL_CONTEXT_NE_EXECUTABLE_AUTHORITY: PASS
+  STRATEGIC_PRIORITY_NE_RUNTIME_SCHEDULER: PASS
+status: PASS

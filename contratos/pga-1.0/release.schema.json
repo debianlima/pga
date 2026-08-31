@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pgh.local/contracts/pga-1.0/release.schema.json",
+  "title": "PGA 1.0 Release Evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "unit",
+    "release",
+    "ownership",
+    "policy_snapshot",
+    "evolution",
+    "protocol_gate_classification",
+    "gates",
+    "status"
+  ],
+  "properties": {
+    "schema": {
+      "const": "pga-1.0-release-evidence-v1"
+    },
+    "unit": {
+      "const": "U-PGA-02-RELEASE-1.0"
+    },
+    "release": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol",
+        "version",
+        "maturity",
+        "source_candidate_head"
+      ],
+      "properties": {
+        "protocol": {
+          "const": "PGA"
+        },
+        "version": {
+          "const": "1.0.0"
+        },
+        "maturity": {
+          "const": "homologated"
+        },
+        "source_candidate_head": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        }
+      }
+    },
+    "ownership": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy",
+        "semantic_authorization",
+        "runtime",
+        "strategic_priority"
+      ],
+      "properties": {
+        "policy": {
+          "const": "PGA"
+        },
+        "semantic_authorization": {
+          "const": "PGH"
+        },
+        "runtime": {
+          "const": "PGD"
+        },
+        "strategic_priority": {
+          "const": "PGA_normative_only"
+        }
+      }
+    },
+    "policy_snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "immutable",
+        "authority_provenance_required",
+        "silent_mutation_forbidden",
+        "self_authority_expansion_forbidden"
+      ],
+      "properties": {
+        "immutable": {
+          "const": true
+        },
+        "authority_provenance_required": {
+          "const": true
+        },
+        "silent_mutation_forbidden": {
+          "const": true
+        },
+        "self_authority_expansion_forbidden": {
+          "const": true
+        }
+      }
+    },
+    "evolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "plan_before_results",
+        "gates_frozen_before_validation",
+        "rollback_or_deprecation_required",
+        "identity_preserved"
+      ],
+      "properties": {
+        "plan_before_results": {
+          "const": true
+        },
+        "gates_frozen_before_validation": {
+          "const": true
+        },
+        "rollback_or_deprecation_required": {
+          "const": true
+        },
+        "identity_preserved": {
+          "const": true
+        }
+      }
+    },
+    "protocol_gate_classification": {
+      "const": "protocol-contract-conformance"
+    },
+    "gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "POLICY_SNAPSHOT_IMMUTABLE",
+        "AUTHORITY_PROVENANCE_COMPLETE",
+        "GOVERNED_OBJECT_IDENTITY_PRESERVED",
+        "NO_SILENT_POLICY_MUTATION",
+        "NO_SELF_AUTHORITY_EXPANSION",
+        "EVOLUTION_PLAN_APPROVED_BEFORE_RESULTS",
+        "GATES_FROZEN_BEFORE_VALIDATION",
+        "ROLLBACK_OR_DEPRECATION_DEFINED",
+        "CULTURAL_CONTEXT_NE_EXECUTABLE_AUTHORITY",
+        "STRATEGIC_PRIORITY_NE_RUNTIME_SCHEDULER"
+      ],
+      "properties": {
+        "POLICY_SNAPSHOT_IMMUTABLE": {
+          "const": "PASS"
+        },
+        "AUTHORITY_PROVENANCE_COMPLETE": {
+          "const": "PASS"
+        },
+        "GOVERNED_OBJECT_IDENTITY_PRESERVED": {
+          "const": "PASS"
+        },
+        "NO_SILENT_POLICY_MUTATION": {
+          "const": "PASS"
+        },
+        "NO_SELF_AUTHORITY_EXPANSION": {
+          "const": "PASS"
+        },
+        "EVOLUTION_PLAN_APPROVED_BEFORE_RESULTS": {
+          "const": "PASS"
+        },
+        "GATES_FROZEN_BEFORE_VALIDATION": {
+          "const": "PASS"
+        },
+        "ROLLBACK_OR_DEPRECATION_DEFINED": {
+          "const": "PASS"
+        },
+        "CULTURAL_CONTEXT_NE_EXECUTABLE_AUTHORITY": {
+          "const": "PASS"
+        },
+        "STRATEGIC_PRIORITY_NE_RUNTIME_SCHEDULER": {
+          "const": "PASS"
+        }
+      }
+    },
+    "status": {
+      "const": "PASS"
+    }
+  }
+}

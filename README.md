@@ -5,3 +5,7 @@ Repositório standalone inicial do PGA, materializado a partir do handoff preser
 O PGA governa política, autoridade organizacional, prioridade estratégica e evolução governada de GovernedObject. Não possui worker, heartbeat, fila, lease ou scheduler.
 
 Origem normativa: debianlima/protocolo-governanca-heterogenea@a68ba9b460bd1d2050d57873fdc1c648732ece07, documento docs/pga/U-PGA-01-msgcd-u20-handoff.md.
+
+## Release 1.0
+
+PGA 1.0 é homologado somente dentro da tríade PGH 2.0 + PGD 1.0 + PGA 1.0; a evidência e os gates locais vivem em `dados/pga-1.0/` e `tests/verify_release_1_0.py`.
