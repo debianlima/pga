@@ -16,7 +16,7 @@
 - Nenhuma local para U-PGA-03 após `PGA_AUXILIAR_RECONCILIATION=PASS`; dependência PGD fixada no HEAD `4d0915e6063f54cf78916453a6e17513caadada0`.
 
 ## Trabalho compartilhado
-- U-PGA-03-AUXILIAR-CONSTRUCAO-CONCILIACAO reservada por ChatGPT-Redes para `manifesto.yaml`, `estado.md` e `tests/verify_project.py` durante esta emenda.
+- ponteiro: `manifesto.yaml.trabalho_compartilhado` — vazio; U-PGA-03 encerrada após `PGA_AUXILIAR_RECONCILIATION=PASS`.
 
 ## Competências ativas nesta unidade
 - `pga-project@0.1.0` — skill de projeto; não alterada, pois a homologação não produziu novo aprendizado de skill.
