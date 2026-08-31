@@ -1,24 +1,11 @@
 projeto: pga
 nome: Protocolo de Autogovernanca
-versao_contrato: 2
+versao_contrato: 3
 release_alvo: v1.0.0
 estado_release: triad_ready
 repositorio: debianlima/pga
 skill_projeto: skills/pga/SKILL.md
-trabalho_compartilhado:
-  projeto: pga
-  caminho: /srv/mcp-workspace/pga-work
-  unidade: T-017-PGA-AUXILIAR-CONCILIACAO
-  descricao: reconciliar dependencia PGD apos H01-R2 preservando autoridade e release PGA 1.0
-  agente: redes-terminal-oracle
-  atualizado_em: '2026-08-31T02:27:10-03:00'
-  previsao_termino: '2026-08-31T03:07:10-03:00'
-  zona_exclusao:
-  - manifesto.yaml
-  - README.md
-  - estado.md
-  - tests/verify_project.py
-  - tests/verify_release_1_0.py
+trabalho_compartilhado: {}
 entradas:
 - id: 1
   caminho: README.md
@@ -99,7 +86,10 @@ auxiliar_construcao_conciliacao:
   dependencia_previa:
     protocolo: PGD
     gate: PGD_AUXILIAR_RECONCILIATION=PASS
-    head: 4d0915e6063f54cf78916453a6e17513caadada0
+    head: 366388d8c52f696d81b7277075b87e8fc144ca1b
+    gate_identidade: PGD_IDENTITY_H01_R2=PASS
+    repositorio_protocolo: debianlima/pgd
+    repositorio_implementacao_canonica: debianlima/pgh-distributed-session-control-plane
   limites:
   - nao_amplia_autoridade_PGA
   - nao_substitui_decisao_humana
