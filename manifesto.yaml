@@ -87,3 +87,23 @@ entradas:
   - pga-1.0-release-human-view
   produz: pga-1.0-release-gate
   aceite: tests/verify_release_1_0.py
+auxiliar_construcao_conciliacao:
+  habilitado: true
+  papel: auxiliar
+  ordem: 2
+  protocolo: PGA
+  participa_em:
+  - construcao
+  - conciliacao_incremental
+  dependencia_previa:
+    protocolo: PGD
+    gate: PGD_AUXILIAR_RECONCILIATION=PASS
+    head: 4d0915e6063f54cf78916453a6e17513caadada0
+  limites:
+  - nao_amplia_autoridade_PGA
+  - nao_substitui_decisao_humana
+  - nao_faz_mutacao_normativa_silenciosa
+  - nao_promove_evidencia_sem_portao
+  gate_saida: PGA_AUXILIAR_RECONCILIATION=PASS
+  natureza: politica_operacional_pos_release
+  preserva_release_v1_0_0: true
