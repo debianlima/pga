@@ -1,8 +1,8 @@
 projeto: pga
 nome: Protocolo de Autogovernanca
-versao_contrato: 1
-release_alvo: v0.1.0
-estado_release: standalone_candidate
+versao_contrato: 2
+release_alvo: v1.0.0
+estado_release: triad_release_candidate
 repositorio: debianlima/pga
 skill_projeto: skills/pga/SKILL.md
 trabalho_compartilhado:
@@ -32,3 +32,32 @@ entradas:
   - {id: 7, caminho: skills/pga/SKILL.md, tipo: competencia-projeto, status: aceito}
   - {id: 8, caminho: docs/U-PGA-01-msgcd-u20-handoff.md, tipo: linhagem, status: aceito}
   - {id: 9, caminho: tests/verify_project.py, tipo: teste, status: aceito}
+
+  - id: 10
+    caminho: contratos/pga-1.0/release.schema.json
+    tipo: contrato
+    status: pendente
+    consome: [handoff-pgh-u20]
+    produz: pga-1.0-release-contract
+    aceite: tests/verify_release_1_0.py
+  - id: 11
+    caminho: dados/pga-1.0/U-PGA-02-release-evidence.yaml
+    tipo: dados
+    status: pendente
+    consome: [pga-1.0-release-contract]
+    produz: pga-1.0-release-evidence
+    aceite: tests/verify_release_1_0.py
+  - id: 12
+    caminho: docs/U-PGA-02-release-1.0.md
+    tipo: documentacao
+    status: pendente
+    consome: [pga-1.0-release-evidence]
+    produz: pga-1.0-release-human-view
+    aceite: tests/verify_release_1_0.py
+  - id: 13
+    caminho: tests/verify_release_1_0.py
+    tipo: teste
+    status: pendente
+    consome: [pga-1.0-release-human-view]
+    produz: pga-1.0-release-gate
+    aceite: tests/verify_release_1_0.py
