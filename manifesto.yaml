@@ -5,7 +5,24 @@ release_alvo: v1.0.0
 estado_release: triad_ready
 repositorio: debianlima/pga
 skill_projeto: skills/pga/SKILL.md
-trabalho_compartilhado: {}
+trabalho_compartilhado:
+  unidade: U-PGA-07-GOVERNANCE-ATTENTION-PROJECTION
+  agente: ChatGPT-Redes
+  previsao_termino: '2026-09-01T18:30:00Z'
+  zona_exclusao:
+  - manifesto.yaml
+  - estado.md
+  - lexico.yaml
+  - competencias.yaml
+  - skills/pga/SKILL.md
+  - dados/telemetria-unidades.jsonl
+  - contratos/pga-1.0/governance-attention.schema.json
+  - dados/pga-1.0/U-PGA-07-governance-attention.yaml
+  - docs/U-PGA-07-governance-attention.md
+  - tests/verify_u_pga_07_governance_attention.py
+  descricao: 'Materializar a projeção PGA de GovernanceAttentionItem para Q1–Q7: decisões
+    resolvidas saem da fila humana, follow-ups técnicos permanecem auditáveis; sem
+    criar runtime, scheduler, lease ou autoridade nova.'
 entradas:
 - id: 1
   caminho: README.md
@@ -134,6 +151,46 @@ entradas:
   - pga-pgdmd-accessory-human-view
   produz: pga-pgdmd-accessory-gate
   aceite: tests/verify_u_pga_06_pgdmd_accessory.py
+- id: 21
+  caminho: contratos/pga-1.0/governance-attention.schema.json
+  tipo: contrato
+  status: em_curso
+  consome:
+  - pgh-governance-human-decisions/1
+  - U251-G5-GOVERNANCE
+  - PGH-SUITE-SYSTEM-VISION-1
+  produz: pga-governance-attention-contract
+  aceite: tests/verify_u_pga_07_governance_attention.py
+- id: 22
+  caminho: dados/pga-1.0/U-PGA-07-governance-attention.yaml
+  tipo: dados
+  status: em_curso
+  consome:
+  - pgh-governance-human-decisions/1
+  - U251-G5-GOVERNANCE
+  - PGH-SUITE-SYSTEM-VISION-1
+  produz: pga-governance-attention-projection
+  aceite: tests/verify_u_pga_07_governance_attention.py
+- id: 23
+  caminho: docs/U-PGA-07-governance-attention.md
+  tipo: documentacao
+  status: em_curso
+  consome:
+  - pgh-governance-human-decisions/1
+  - U251-G5-GOVERNANCE
+  - PGH-SUITE-SYSTEM-VISION-1
+  produz: pga-governance-attention-human-view
+  aceite: tests/verify_u_pga_07_governance_attention.py
+- id: 24
+  caminho: tests/verify_u_pga_07_governance_attention.py
+  tipo: teste
+  status: em_curso
+  consome:
+  - pgh-governance-human-decisions/1
+  - U251-G5-GOVERNANCE
+  - PGH-SUITE-SYSTEM-VISION-1
+  produz: pga-governance-attention-gate
+  aceite: tests/verify_u_pga_07_governance_attention.py
 auxiliar_construcao_conciliacao:
   habilitado: true
   papel: auxiliar
