@@ -59,3 +59,9 @@
 ## U-PGA-06-PGDMD-ACCESSORY-MATERIALIZATION — unidade aberta
 - `telemetria_inicio=2026-09-01T13:45:32Z`; decisão canônica `PGDMD_ACCESSORY_OF_PGA`; materialização somente como contrato/módulo acessório sob PGA.
 - Proibido nesta unidade: grants novos, scheduler, fila, runtime, skill PGDMD independente ou extração de repositório/lifecycle próprio.
+
+## U-PGA-06-PGDMD-ACCESSORY-MATERIALIZATION — PASS
+- `PGDMD_ACCESSORY_OF_PGA` materializado como contrato/módulo acessório `pga-pgdmd-domain-governance/1`.
+- `DOMAIN_PACKAGE_SCHEMA=PASS`; `PGA_AUTHORITY_PRESERVED=PASS`; `NO_GRANT_CREATION=PASS`; `NO_RUNTIME_CREATION=PASS`; `NO_SKILL_OWNERSHIP_TRANSFER=PASS`.
+- PGDMD modela referências normativas de domínio, precedência, herança e exceções com autoridade/decisão explícitas; PGH recebe refs versionadas e PGD recebe apenas restrições aplicáveis.
+- `RECONCILIATION_CLOSURE=PASS`; `DEPENDENCY_REFERENCES=PASS`; `VERSION=1.0.0` e `v1.0.0` preservados; `trabalho_compartilhado` liberado.

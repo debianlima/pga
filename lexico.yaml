@@ -5,3 +5,6 @@ termos:
   PolicySnapshot: snapshot imutavel de politica e autoridade
   EvolutionProposal: proposta de evolucao governada
   HumanPreferenceEvidence: evidencia humana usada como insumo, nao mutacao direta
+  PGDMD: protocolo acessorio de governanca de dominio subordinado ao PGA
+  NormativeDomainPackage: pacote versionado de modelo/politica/norma/processo/procedimento de dominio
+  DomainGovernanceException: excecao de dominio que exige autoridade e decisao explicitamente referenciadas

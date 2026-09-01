@@ -1,0 +1,71 @@
+unit: U-PGA-06-PGDMD-ACCESSORY-MATERIALIZATION
+canonical_relation: PGDMD_ACCESSORY_OF_PGA
+source_decision:
+  pgh_ref: edbfefa6ef4d0bd2e6581e6781e82e167c583b96
+  unit: U45-PGL-PGA-ONTOLOGY
+  selected_option: E
+  ontology_mutation_allowed: true
+materialization:
+  form: accessory_contract_module_under_PGA
+  standalone_repository_created: false
+  standalone_lifecycle_created: false
+  project_skill_change_required: false
+contract_example:
+  schema_version: pga-pgdmd-domain-governance/1
+  relation: PGDMD_ACCESSORY_OF_PGA
+  authority_boundary:
+    pga_authority_ref: pga://authority/domain-governance-example
+    creates_grants: false
+    creates_runtime: false
+    creates_scheduler: false
+    creates_queue: false
+    creates_skill_runtime: false
+  domain_package:
+    package_id: pgdmd://package/software-delivery/1.0.0
+    domain_id: software-delivery
+    version: 1.0.0
+    domain_model_refs:
+    - pgdmd://domain/software-delivery/model/1.0.0
+    normative_refs:
+    - kind: policy
+      ref: policy://security/1
+      version_ref: v1
+    - kind: standard
+      ref: standard://iso/example
+      version_ref: edition-example
+    - kind: process
+      ref: process://delivery/2
+      version_ref: v2
+    - kind: procedure
+      ref: procedure://change/4
+      version_ref: v4
+    precedence:
+    - policy://security/1
+    - standard://iso/example
+    - process://delivery/2
+    - procedure://change/4
+    inherits_from:
+    - pgdmd://domain/base-software/1.0.0
+    exceptions:
+    - exception_ref: pgdmd://exception/software-delivery/change-window/1
+      authority_ref: pga://authority/domain-governance-example
+      decision_ref: human://decision/change-window-example
+      applies_to_refs:
+      - procedure://change/4
+  consumer_projection:
+    PGA: canonical_governance_authority
+    PGH: versioned_normative_domain_reference
+    PGD: policy_constraints_only_no_runtime_ownership_transfer
+    PGDMD: accessory_domain_governance_reference
+gates:
+  DELTA_INVENTORY: PASS
+  LEARNING_PRESERVED: PASS
+  PGDMD_PGA_RELATION: PASS
+  DOMAIN_PACKAGE_SCHEMA: PASS
+  PGA_AUTHORITY_PRESERVED: PASS
+  NO_GRANT_CREATION: PASS
+  NO_RUNTIME_CREATION: PASS
+  NO_SKILL_OWNERSHIP_TRANSFER: PASS
+  PGH_REFERENCE_PROJECTION: PASS
+  RECONCILIATION_CLOSURE: PASS
+  DEPENDENCY_REFERENCES: PASS
