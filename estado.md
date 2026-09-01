@@ -37,3 +37,10 @@
 
 ## Próxima unidade
 - Reconciliar a suíte PGH/PGD/PGA com os HEADs PGD/PGA atuais; publicação/tag conjunta permanece gate separado da suíte PGH.
+
+## U-PGA-04-CORE-SYSTEM-CONTEXT — interrupção governada por dependência
+- `DELTA_INVENTORY=PASS` e `LEARNING_PRESERVED=PASS`: identidade/base do componente e fronteiras da suíte foram inventariadas sem normalização.
+- `UPSTREAM_CORE_SAFE_POINT=BLOCKED`: o PGH Core está sob reserva viva `U250-U255-HUMAN-APPROVED-RECONCILIATION` em `b4852d9c13c463cfe171771e59ac0e3767bc2260`, e o runtime PGD está sob `U250-OPERATIONAL-RECONCILIATION-MATERIALIZATION`; a semântica U250/U255 ainda pode alterar referências que esta unidade deve consumir.
+- Resultado desta unidade: `BLOCKED_DEPENDENCY`; nenhuma normalização, bump de release, mudança de autoridade, tag ou runtime foi executada.
+- Reserva liberada para não manter exclusão inútil.
+- Próximo gate: safe point final U250/U255 + U250 runtime; então abrir unidade sucessora com refs finais e rerodar os gates.
