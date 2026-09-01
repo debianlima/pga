@@ -1,6 +1,6 @@
 ---
 name: pga-project
-versao: 0.2.0
+versao: 0.3.0
 description: Skill de projeto do PGA 1.0 para política, autoridade, prioridade, atenção humana e evolução governada; sem scheduler, lease ou runtime vivo.
 tipo_competencia: projeto
 origem:
@@ -31,3 +31,10 @@ PGA governa política, autoridade, prioridade estratégica e evolução governad
 - Decisão humana resolvida não volta à fila por existir dívida técnica.
 - Follow-up técnico não amplia autoridade nem substitui decisão humana.
 - Release `v1.0.0` é imutável; reconciliações pós-release não reescrevem a tag.
+## Private-by-default e agentes de serviço de rede
+
+- `Q3-NETWORK-SHARING-DEFAULT` mantém recursos, skills, projetos e chats privados por padrão; adesão à rede é sempre explícita.
+- Após join explícito, a política PGA descreve **exatamente dois** papéis efêmeros: um `network_control_agent` (`network-control-only`) e um `distributed_processing_agent` (`distributed-processing-only`), ambos com `count=1`.
+- Os dois papéis não compartilham recursos privados implicitamente; sharing adicional exige grant explícito por principal/grupo/tenant/público.
+- PGA descreve a política, mas não cria scheduler, worker, lease, runtime, grant ou preempção. A execução é delegada ao owner de runtime/PGD e a federação de rede ao owner RHGD.
+- A materialização de política não substitui a execução operacional G4 nem autoriza A07 a agir como runtime owner.

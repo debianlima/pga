@@ -78,3 +78,11 @@
 - `pga-project@0.2.0` registrado no catálogo em `03a1f45d6edda920bd765d412aa27f3018c5da71`.
 - `CATALOGO_SKILLS=PASS`, `SYNC_GUARD=PASS`, `RECONCILIATION_CLOSURE=PASS`, `DEPENDENCY_REFERENCES=PASS`.
 - `trabalho_compartilhado` liberado; release `v1.0.0` permaneceu imutável.
+
+## U-PGA-08-NETWORK-SERVICE-AGENTS — gates locais PASS
+- Fonte humana: `Q3-NETWORK-SHARING-DEFAULT`, `selected=PRIVATE_PLUS_TWO_NETWORK_SERVICE_AGENTS`.
+- `default_scope=private`, join de rede explícito e sharing adicional somente por grants explícitos.
+- Dois papéis efêmeros exatos: `network_control_agent` e `distributed_processing_agent`, `count=1` cada, com escopos não sobrepostos.
+- `AUTHORITY_BOUNDARY=PASS` e `NO_PGA_RUNTIME=PASS`: PGA não cria scheduler, worker, lease, runtime, grant ou preempção.
+- Gates locais: U08 PASS, projeto PASS, release 1.0 10/10 PASS, U05 PASS, U06 PASS, U07 PASS.
+- Aprendizado homologável: `pga-project@0.3.0`; catálogo é gate pendente antes do fechamento.

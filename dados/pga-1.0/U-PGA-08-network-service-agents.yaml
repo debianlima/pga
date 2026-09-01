@@ -1,0 +1,67 @@
+schema: pga-network-service-agents/1
+unit: U-PGA-08-NETWORK-SERVICE-AGENTS
+source:
+  decision_id: Q3-NETWORK-SHARING-DEFAULT
+  repository: debianlima/pgh-distributed-session-control-plane
+  commit: f5047f72914c6634982df30c8ce0f8747af5cfb3
+  path: config/3.0/governance-decisions.yaml
+  sha256: cc79afcd94345752c0e0b5cf9883c48a5956f09a91bcde990fccb941f4ff903b
+  status: RESOLVED
+  selected: PRIVATE_PLUS_TWO_NETWORK_SERVICE_AGENTS
+  authority: human-operator
+policy:
+  default_scope: private
+  network_join: explicit-only
+  private_resources_shared_implicitly: false
+  additional_sharing: explicit-grants-by-principal-group-tenant-public
+network_service_agents:
+  - role: network_control_agent
+    count: 1
+    lifecycle: ephemeral
+    scope: network-control-only
+    purpose: interconexao_saude_manutencao_rede_descentralizada
+    network_join_required: true
+    created_by_pga: false
+    runtime_owner: PGD/runtime-owner
+  - role: distributed_processing_agent
+    count: 1
+    lifecycle: ephemeral
+    scope: distributed-processing-only
+    purpose: receber_enviar_carga_cognitiva_rede
+    network_join_required: true
+    created_by_pga: false
+    runtime_owner: PGD/runtime-owner
+ownership:
+  policy_owner: PGA
+  runtime_owner: PGD/runtime-owner
+  network_federation_owner: RHGD/network-owner
+  scheduler_duplication: false
+authority_boundary:
+  PGA: policy_authority_priority_gates_governed_evolution
+  runtime_execution: delegated_to_runtime_owner_after_explicit_join_and_grants
+  creates_scheduler: false
+  creates_worker: false
+  creates_lease: false
+  creates_runtime_state: false
+  creates_grant: false
+  shares_private_resource_implicitly: false
+  preempts_existing_work: false
+release:
+  version: 1.0.0
+  tag: v1.0.0
+  immutable: true
+gates:
+  DELTA_INVENTORY: PASS
+  LEARNING_PRESERVED: PASS
+  SOURCE_PIN: PASS
+  PRIVATE_BY_DEFAULT: PASS
+  EXPLICIT_JOIN: PASS
+  EXACTLY_TWO_AGENTS: PASS
+  EPHEMERAL_LIFECYCLE: PASS
+  SCOPE_ISOLATION: PASS
+  NO_IMPLICIT_PRIVATE_SHARING: PASS
+  AUTHORITY_BOUNDARY: PASS
+  NO_PGA_RUNTIME: PASS
+  RELEASE_IMMUTABILITY: PASS
+  RECONCILIATION_CLOSURE: PENDING
+  DEPENDENCY_REFERENCES: PENDING

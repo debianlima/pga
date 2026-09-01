@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pga-network-service-agents/1",
+  "title": "PGA Network Service Agent Policy Projection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "unit", "source", "policy", "network_service_agents", "ownership", "authority_boundary", "release", "gates"],
+  "properties": {
+    "schema": {"const": "pga-network-service-agents/1"},
+    "unit": {"const": "U-PGA-08-NETWORK-SERVICE-AGENTS"},
+    "source": {"$ref": "#/$defs/Source"},
+    "policy": {"$ref": "#/$defs/Policy"},
+    "network_service_agents": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"$ref": "#/$defs/ServiceAgent"}},
+    "ownership": {"$ref": "#/$defs/Ownership"},
+    "authority_boundary": {"$ref": "#/$defs/AuthorityBoundary"},
+    "release": {"$ref": "#/$defs/Release"},
+    "gates": {"type": "object", "additionalProperties": {"enum": ["PASS", "PENDING"]}}
+  },
+  "$defs": {
+    "Source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["decision_id", "repository", "commit", "path", "sha256", "status", "selected", "authority"],
+      "properties": {
+        "decision_id": {"const": "Q3-NETWORK-SHARING-DEFAULT"},
+        "repository": {"const": "debianlima/pgh-distributed-session-control-plane"},
+        "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "path": {"const": "config/3.0/governance-decisions.yaml"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "status": {"const": "RESOLVED"},
+        "selected": {"const": "PRIVATE_PLUS_TWO_NETWORK_SERVICE_AGENTS"},
+        "authority": {"const": "human-operator"}
+      }
+    },
+    "Policy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["default_scope", "network_join", "private_resources_shared_implicitly", "additional_sharing"],
+      "properties": {
+        "default_scope": {"const": "private"},
+        "network_join": {"const": "explicit-only"},
+        "private_resources_shared_implicitly": {"const": false},
+        "additional_sharing": {"const": "explicit-grants-by-principal-group-tenant-public"}
+      }
+    },
+    "ServiceAgent": {
+      "type": "object", "additionalProperties": false,
+      "required": ["role", "count", "lifecycle", "scope", "purpose", "network_join_required", "created_by_pga", "runtime_owner"],
+      "properties": {
+        "role": {"enum": ["network_control_agent", "distributed_processing_agent"]},
+        "count": {"const": 1},
+        "lifecycle": {"const": "ephemeral"},
+        "scope": {"enum": ["network-control-only", "distributed-processing-only"]},
+        "purpose": {"enum": ["interconexao_saude_manutencao_rede_descentralizada", "receber_enviar_carga_cognitiva_rede"]},
+        "network_join_required": {"const": true},
+        "created_by_pga": {"const": false},
+        "runtime_owner": {"const": "PGD/runtime-owner"}
+      }
+    },
+    "Ownership": {
+      "type": "object", "additionalProperties": false,
+      "required": ["policy_owner", "runtime_owner", "network_federation_owner", "scheduler_duplication"],
+      "properties": {
+        "policy_owner": {"const": "PGA"},
+        "runtime_owner": {"const": "PGD/runtime-owner"},
+        "network_federation_owner": {"const": "RHGD/network-owner"},
+        "scheduler_duplication": {"const": false}
+      }
+    },
+    "AuthorityBoundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["PGA", "runtime_execution", "creates_scheduler", "creates_worker", "creates_lease", "creates_runtime_state", "creates_grant", "shares_private_resource_implicitly", "preempts_existing_work"],
+      "properties": {
+        "PGA": {"const": "policy_authority_priority_gates_governed_evolution"},
+        "runtime_execution": {"const": "delegated_to_runtime_owner_after_explicit_join_and_grants"},
+        "creates_scheduler": {"const": false},
+        "creates_worker": {"const": false},
+        "creates_lease": {"const": false},
+        "creates_runtime_state": {"const": false},
+        "creates_grant": {"const": false},
+        "shares_private_resource_implicitly": {"const": false},
+        "preempts_existing_work": {"const": false}
+      }
+    },
+    "Release": {
+      "type": "object", "additionalProperties": false,
+      "required": ["version", "tag", "immutable"],
+      "properties": {"version": {"const": "1.0.0"}, "tag": {"const": "v1.0.0"}, "immutable": {"const": true}}
+    }
+  }
+}

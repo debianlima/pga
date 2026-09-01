@@ -21,3 +21,19 @@ termos:
       sempre ligado ao decision_id e à evidência de origem
     limite: não reabre decisão humana, não cria autoridade e não implica scheduler/lease/runtime
       no PGA
+  NetworkServiceAgentPolicy:
+    definicao: política PGA que mantém recursos privados por padrão e, após join explícito,
+      descreve exatamente dois papéis efêmeros de serviço de rede com escopos não
+      sobrepostos
+    limite: não materializa runtime, scheduler, worker, lease ou grants; execução
+      pertence ao runtime owner
+  NetworkControlServiceAgent:
+    definicao: papel efêmero único, escopo network-control-only, para interconexão,
+      saúde e manutenção da rede descentralizada
+    limite: não recebe carga cognitiva distribuída e não ganha acesso implícito a
+      recursos privados
+  DistributedProcessingServiceAgent:
+    definicao: papel efêmero único, escopo distributed-processing-only, para receber/enviar
+      carga cognitiva da rede
+    limite: não governa interconexão/manutenção e não ganha acesso implícito a recursos
+      privados

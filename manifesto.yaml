@@ -194,7 +194,7 @@ entradas:
 - id: 25
   caminho: contratos/pga-1.0/network-service-agents.schema.json
   tipo: contrato
-  status: em_curso
+  status: aceito
   consome:
   - Q3-NETWORK-SHARING-DEFAULT
   - GovernanceTechnicalFollowUp:FU-Q3-NETWORK-SERVICE-AGENTS
@@ -204,7 +204,7 @@ entradas:
 - id: 26
   caminho: dados/pga-1.0/U-PGA-08-network-service-agents.yaml
   tipo: dados
-  status: em_curso
+  status: aceito
   consome:
   - Q3-NETWORK-SHARING-DEFAULT
   - GovernanceTechnicalFollowUp:FU-Q3-NETWORK-SERVICE-AGENTS
@@ -214,7 +214,7 @@ entradas:
 - id: 27
   caminho: docs/U-PGA-08-network-service-agents.md
   tipo: documentacao
-  status: em_curso
+  status: aceito
   consome:
   - Q3-NETWORK-SHARING-DEFAULT
   - GovernanceTechnicalFollowUp:FU-Q3-NETWORK-SERVICE-AGENTS
@@ -224,7 +224,7 @@ entradas:
 - id: 28
   caminho: tests/verify_u_pga_08_network_service_agents.py
   tipo: teste
-  status: em_curso
+  status: aceito
   consome:
   - Q3-NETWORK-SHARING-DEFAULT
   - GovernanceTechnicalFollowUp:FU-Q3-NETWORK-SERVICE-AGENTS
