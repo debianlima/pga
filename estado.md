@@ -100,3 +100,12 @@
 - `DELTA_INVENTORY=PASS`: PGA já declara `policy_authority_priority_gates_governed_evolution`, mas ainda não materializa P0–P4/human-reserved.
 - `LEARNING_PRESERVED=PASS`: PGA continua sem scheduler/worker/lease/runtime/grant/preempção; execução permanece PGD/runtime-owner.
 - escopo: política P0_GOVERNED, P1_HIGH, P2_NORMAL, P3_LOW, P4_BACKGROUND; prioridade não concede autoridade, não preempta e não vence locks/leases/fences/human blocks.
+
+## U-PGA-09-DETERMINISTIC-PRIORITY-POLICY — gates locais PASS
+- Fonte U268 verificada por commit/caminho/SHA-256; `SOURCE_PIN=PASS`.
+- Cinco bandas canônicas `P0_GOVERNED`..`P4_BACKGROUND`, com `P2_NORMAL` default e `P0_GOVERNED` human-reserved.
+- `AUTHORITY_PRIORITY_SEPARATION=PASS`; prioridade não concede autoridade, não ignora lock/lease/fence/human block e não preempta trabalho em execução.
+- `STRICT_FIFO_PRESERVED=PASS`; prioridade só participa quando o contrato da fila autoriza.
+- `NO_PGA_RUNTIME=PASS`; PGA não cria scheduler, worker, lease, runtime, grant nem preempção.
+- Regressão local: projeto PASS; release 1.0 `10/10 PASS`; U05, U06, U07, U08 e U09 PASS.
+- Aprendizado homologável materializado em `pga-project@0.4.0`; catálogo/sync guard e fechamento remoto ainda são gates pendentes.

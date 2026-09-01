@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pga-deterministic-priority-policy/1",
+  "title": "PGA Deterministic Priority Policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "unit", "source", "priority_bands", "policy", "queue_policy", "authority_boundary", "release", "gates"],
+  "properties": {
+    "schema": {"const": "pga-deterministic-priority-policy/1"},
+    "unit": {"const": "U-PGA-09-DETERMINISTIC-PRIORITY-POLICY"},
+    "source": {"$ref": "#/$defs/Source"},
+    "priority_bands": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "prefixItems": [
+        {"$ref": "#/$defs/P0"}, {"$ref": "#/$defs/P1"}, {"$ref": "#/$defs/P2"}, {"$ref": "#/$defs/P3"}, {"$ref": "#/$defs/P4"}
+      ],
+      "items": false
+    },
+    "policy": {"$ref": "#/$defs/Policy"},
+    "queue_policy": {"$ref": "#/$defs/QueuePolicy"},
+    "authority_boundary": {"$ref": "#/$defs/AuthorityBoundary"},
+    "release": {"$ref": "#/$defs/Release"},
+    "gates": {"type": "object", "additionalProperties": {"enum": ["PASS", "PENDING"]}}
+  },
+  "$defs": {
+    "Source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["repository", "commit", "path", "sha256", "contract_id", "decision_id", "authority"],
+      "properties": {
+        "repository": {"const": "debianlima/protocolo-governanca-heterogenea"},
+        "commit": {"const": "f6c47aa104dbba0359afd69cff0fd58889c5b348"},
+        "path": {"const": "dados/pgh-2.0/U268-deterministic-election-fabric.yaml"},
+        "sha256": {"const": "44acaa08e273ec34a118ab092dc9b749ddf2e5d62d3121e8cfd4c96d6b83eb67"},
+        "contract_id": {"const": "CT-PGH2-DETERMINISTIC-ELECTION-FABRIC@1.0.0"},
+        "decision_id": {"const": "HUMAN-U268-DETERMINISTIC-ELECTION-FABRIC-20260901"},
+        "authority": {"const": "human-operator"}
+      }
+    },
+    "BandBase": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "rank", "automatic_preemption", "set_by"],
+      "properties": {
+        "id": {"type": "string"}, "rank": {"type": "integer", "minimum": 0, "maximum": 4},
+        "automatic_preemption": {"const": false}, "set_by": {"type": "string"}, "default": {"type": "boolean"}
+      }
+    },
+    "P0": {"allOf": [{"$ref": "#/$defs/BandBase"}, {"properties": {"id": {"const": "P0_GOVERNED"}, "rank": {"const": 0}, "set_by": {"const": "human_or_pga_only"}}}]},
+    "P1": {"allOf": [{"$ref": "#/$defs/BandBase"}, {"properties": {"id": {"const": "P1_HIGH"}, "rank": {"const": 1}, "set_by": {"const": "governed_project_policy"}}}]},
+    "P2": {"allOf": [{"$ref": "#/$defs/BandBase"}, {"required": ["default"], "properties": {"id": {"const": "P2_NORMAL"}, "rank": {"const": 2}, "set_by": {"const": "governed_project_policy"}, "default": {"const": true}}}]},
+    "P3": {"allOf": [{"$ref": "#/$defs/BandBase"}, {"properties": {"id": {"const": "P3_LOW"}, "rank": {"const": 3}, "set_by": {"const": "governed_project_policy"}}}]},
+    "P4": {"allOf": [{"$ref": "#/$defs/BandBase"}, {"properties": {"id": {"const": "P4_BACKGROUND"}, "rank": {"const": 4}, "set_by": {"const": "governed_project_policy"}}}]},
+    "Policy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["human_reserved_band", "priority_grants_authority", "priority_can_bypass_locks_leases_fences", "priority_can_preempt_running_work", "runtime_owner"],
+      "properties": {
+        "human_reserved_band": {"const": "P0_GOVERNED"},
+        "priority_grants_authority": {"const": false},
+        "priority_can_bypass_locks_leases_fences": {"const": false},
+        "priority_can_preempt_running_work": {"const": false},
+        "runtime_owner": {"const": "PGD/runtime-owner"}
+      }
+    },
+    "QueuePolicy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["strict_fifo_contract_preserved", "priority_applies_only_when_queue_contract_allows"],
+      "properties": {
+        "strict_fifo_contract_preserved": {"const": true},
+        "priority_applies_only_when_queue_contract_allows": {"const": true}
+      }
+    },
+    "AuthorityBoundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["PGA", "L1_L5_authority_preserved", "creates_scheduler", "creates_worker", "creates_lease", "creates_runtime_state", "creates_grant", "performs_preemption"],
+      "properties": {
+        "PGA": {"const": "policy_authority_priority_gates_governed_evolution"},
+        "L1_L5_authority_preserved": {"const": true},
+        "creates_scheduler": {"const": false}, "creates_worker": {"const": false}, "creates_lease": {"const": false},
+        "creates_runtime_state": {"const": false}, "creates_grant": {"const": false}, "performs_preemption": {"const": false}
+      }
+    },
+    "Release": {
+      "type": "object", "additionalProperties": false,
+      "required": ["version", "tag", "immutable"],
+      "properties": {"version": {"const": "1.0.0"}, "tag": {"const": "v1.0.0"}, "immutable": {"const": true}}
+    }
+  }
+}

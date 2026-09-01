@@ -11,8 +11,9 @@ trabalho_compartilhado:
   unidade: U-PGA-09-DETERMINISTIC-PRIORITY-POLICY
   descricao: materializar autoridade normativa P0-P4/human-reserved de U268 sem scheduler runtime ou preempcao automatica
   agente: terminal-oracle
-  atualizado_em: '2026-09-01T18:10:33Z'
-  previsao_termino: '2026-09-01T20:10:33Z'
+  atualizado_em: '2026-09-01T20:38:28Z'
+  previsao_termino: '2026-09-01T22:38:28Z'
+  prorrogado_em: '2026-09-01T20:38:28Z'
   zona_exclusao:
   - manifesto.yaml
   - estado.md
@@ -234,7 +235,7 @@ entradas:
 - id: 29
   caminho: contratos/pga-1.0/deterministic-priority-policy.schema.json
   tipo: contrato
-  status: pendente
+  status: aceito
   consome:
   - CT-PGH2-DETERMINISTIC-ELECTION-FABRIC@1.0.0
   produz: pga-deterministic-priority-policy-contract
@@ -242,7 +243,7 @@ entradas:
 - id: 30
   caminho: dados/pga-1.0/U-PGA-09-deterministic-priority-policy.yaml
   tipo: dados
-  status: pendente
+  status: aceito
   consome:
   - pga-deterministic-priority-policy-contract
   produz: pga-deterministic-priority-policy-evidence
@@ -250,7 +251,7 @@ entradas:
 - id: 31
   caminho: docs/U-PGA-09-deterministic-priority-policy.md
   tipo: documentacao
-  status: pendente
+  status: aceito
   consome:
   - pga-deterministic-priority-policy-evidence
   produz: pga-deterministic-priority-policy-human-view
@@ -258,7 +259,7 @@ entradas:
 - id: 32
   caminho: tests/verify_u_pga_09_deterministic_priority_policy.py
   tipo: teste
-  status: pendente
+  status: aceito
   consome:
   - pga-deterministic-priority-policy-contract
   produz: pga-deterministic-priority-policy-gate

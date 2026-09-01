@@ -1,0 +1,67 @@
+schema: pga-deterministic-priority-policy/1
+unit: U-PGA-09-DETERMINISTIC-PRIORITY-POLICY
+source:
+  repository: debianlima/protocolo-governanca-heterogenea
+  commit: f6c47aa104dbba0359afd69cff0fd58889c5b348
+  path: dados/pgh-2.0/U268-deterministic-election-fabric.yaml
+  sha256: 44acaa08e273ec34a118ab092dc9b749ddf2e5d62d3121e8cfd4c96d6b83eb67
+  contract_id: CT-PGH2-DETERMINISTIC-ELECTION-FABRIC@1.0.0
+  decision_id: HUMAN-U268-DETERMINISTIC-ELECTION-FABRIC-20260901
+  authority: human-operator
+priority_bands:
+- id: P0_GOVERNED
+  rank: 0
+  automatic_preemption: false
+  set_by: human_or_pga_only
+- id: P1_HIGH
+  rank: 1
+  automatic_preemption: false
+  set_by: governed_project_policy
+- id: P2_NORMAL
+  rank: 2
+  automatic_preemption: false
+  set_by: governed_project_policy
+  default: true
+- id: P3_LOW
+  rank: 3
+  automatic_preemption: false
+  set_by: governed_project_policy
+- id: P4_BACKGROUND
+  rank: 4
+  automatic_preemption: false
+  set_by: governed_project_policy
+policy:
+  human_reserved_band: P0_GOVERNED
+  priority_grants_authority: false
+  priority_can_bypass_locks_leases_fences: false
+  priority_can_preempt_running_work: false
+  runtime_owner: PGD/runtime-owner
+queue_policy:
+  strict_fifo_contract_preserved: true
+  priority_applies_only_when_queue_contract_allows: true
+authority_boundary:
+  PGA: policy_authority_priority_gates_governed_evolution
+  L1_L5_authority_preserved: true
+  creates_scheduler: false
+  creates_worker: false
+  creates_lease: false
+  creates_runtime_state: false
+  creates_grant: false
+  performs_preemption: false
+release:
+  version: 1.0.0
+  tag: v1.0.0
+  immutable: true
+gates:
+  DELTA_INVENTORY: PASS
+  LEARNING_PRESERVED: PASS
+  SOURCE_PIN: PASS
+  FIVE_PRIORITY_BANDS: PASS
+  HUMAN_RESERVED_P0: PASS
+  AUTHORITY_PRIORITY_SEPARATION: PASS
+  NO_AUTOMATIC_PREEMPTION: PASS
+  STRICT_FIFO_PRESERVED: PASS
+  NO_PGA_RUNTIME: PASS
+  RELEASE_IMMUTABILITY: PASS
+  RECONCILIATION_CLOSURE: PENDING
+  DEPENDENCY_REFERENCES: PENDING

@@ -1,6 +1,6 @@
 ---
 name: pga-project
-versao: 0.3.0
+versao: 0.4.0
 description: Skill de projeto do PGA 1.0 para política, autoridade, prioridade, atenção humana e evolução governada; sem scheduler, lease ou runtime vivo.
 tipo_competencia: projeto
 origem:
@@ -38,3 +38,10 @@ PGA governa política, autoridade, prioridade estratégica e evolução governad
 - Os dois papéis não compartilham recursos privados implicitamente; sharing adicional exige grant explícito por principal/grupo/tenant/público.
 - PGA descreve a política, mas não cria scheduler, worker, lease, runtime, grant ou preempção. A execução é delegada ao owner de runtime/PGD e a federação de rede ao owner RHGD.
 - A materialização de política não substitui a execução operacional G4 nem autoriza A07 a agir como runtime owner.
+
+## Prioridade determinística sem transferência de autoridade
+
+- **Aprendizado:** P0–P4 é política normativa do PGA, mas prioridade permanece ortogonal à autoridade L1–L5 e nunca cria permissão por si só.
+- **Evidência/gate:** U-PGA-09-DETERMINISTIC-PRIORITY-POLICY, 2026-09-01; `FIVE_PRIORITY_BANDS=PASS`, `HUMAN_RESERVED_P0=PASS`, `AUTHORITY_PRIORITY_SEPARATION=PASS`, `NO_AUTOMATIC_PREEMPTION=PASS`, `STRICT_FIFO_PRESERVED=PASS`, `NO_PGA_RUNTIME=PASS`.
+- **Evita:** tratar P0 como bypass de lock/lease/fence/human block, reordenar fila strict FIFO sem opt-in ou deslocar scheduler/runtime para o PGA.
+- **Plataforma/pressupostos:** política versionada em YAML/JSON Schema; runtime continua sob PGD/runtime-owner e filas só aplicam prioridade quando seu contrato autoriza.

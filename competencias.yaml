@@ -5,7 +5,7 @@ competencias:
   tipo: projeto
   ref: skills/pga/SKILL.md
   estado: ativa
-  versao: 0.3.0
+  versao: 0.4.0
 - id: desenvolvedor-de-software
   tipo: global
   ref: metodo/desenvolvedor-de-software/SKILL.md
