@@ -5,7 +5,22 @@ release_alvo: v1.0.0
 estado_release: triad_ready
 repositorio: debianlima/pga
 skill_projeto: skills/pga/SKILL.md
-trabalho_compartilhado: {}
+trabalho_compartilhado:
+  projeto: pga
+  caminho: repositorio-canonico
+  unidade: U-PGA-04-CORE-SYSTEM-CONTEXT
+  descricao: PGA reconcilia Core U45/U46, System Vision e PGD U-PGD-05 sem ampliar autoridade
+  agente: ChatGPT-Redes-profile-aline
+  atualizado_em: '2026-09-01T05:32:41.101521+00:00'
+  previsao_termino: '2026-09-01T07:32:41.101521+00:00'
+  zona_exclusao:
+  - manifesto.yaml
+  - estado.md
+  - dados/telemetria-unidades.jsonl
+  - dados/pga-1.0/U-PGA-04-core-system-context.yaml
+  - docs/U-PGA-04-core-system-context-reconciliation.md
+  - tests/verify_u_pga_04_core_system_context.py
+
 entradas:
 - id: 1
   caminho: README.md
