@@ -5,7 +5,20 @@ release_alvo: v1.0.0
 estado_release: triad_ready
 repositorio: debianlima/pga
 skill_projeto: skills/pga/SKILL.md
-trabalho_compartilhado: {}
+trabalho_compartilhado:
+  unidade: U-PGA-06-PGDMD-ACCESSORY-MATERIALIZATION
+  agente: ChatGPT-Redes
+  previsao_termino: "2026-09-01T19:30:00Z"
+  zona_exclusao:
+  - manifesto.yaml
+  - estado.md
+  - lexico.yaml
+  - dados/telemetria-unidades.jsonl
+  - contratos/pga-1.0/pgdmd-domain-governance.schema.json
+  - dados/pga-1.0/U-PGA-06-pgdmd-accessory.yaml
+  - docs/U-PGA-06-pgdmd-accessory.md
+  - tests/verify_u_pga_06_pgdmd_accessory.py
+  descricao: Materializar PGDMD como protocolo acessorio de governanca de dominio sob PGA, sem grants, runtime, scheduler ou repositorio proprio.
 entradas:
 - id: 1
   caminho: README.md

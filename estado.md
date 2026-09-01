@@ -55,3 +55,7 @@
 - `PGDMD_PGA_RELATION=PASS`: `PGDMD_ACCESSORY_OF_PGA`; nenhuma nova autoridade, grant ou função runtime criada.
 - `AUTHORITY_BOUNDARY=PASS`; `NO_PGA_RUNTIME=PASS`; `RECONCILIATION_CLOSURE=PASS`; `DEPENDENCY_REFERENCES=PASS`.
 - `RELEASE_IMMUTABILITY=PASS`: `VERSION=1.0.0`, tag `v1.0.0` preservada; `trabalho_compartilhado` liberado.
+
+## U-PGA-06-PGDMD-ACCESSORY-MATERIALIZATION — unidade aberta
+- `telemetria_inicio=2026-09-01T13:45:32Z`; decisão canônica `PGDMD_ACCESSORY_OF_PGA`; materialização somente como contrato/módulo acessório sob PGA.
+- Proibido nesta unidade: grants novos, scheduler, fila, runtime, skill PGDMD independente ou extração de repositório/lifecycle próprio.
