@@ -48,3 +48,10 @@
 ## U-PGA-05-CORE-SYSTEM-CONTEXT-RECONCILIATION — unidade sucessora aberta
 - `telemetria_inicio=2026-09-01T13:35:57Z`; U-PGD-07 fechou `PASS` em `743567ba2b4a5e6db204a9d508b7997a1b760326`.
 - Escopo: reconciliar política/autoridade e PGDMD accessory; PGA continua sem scheduler/worker/lease/runtime vivo; `v1.0.0` imutável.
+
+## U-PGA-05-CORE-SYSTEM-CONTEXT-RECONCILIATION — PASS
+- Bloqueio U-PGA-04 removido após U250/U255/runtime e PGD U07 `743567ba2b4a5e6db204a9d508b7997a1b760326` fecharem em safe point.
+- `DELTA_INVENTORY=PASS`; `LEARNING_PRESERVED=PASS`; `PGD_U07_DEPENDENCY=PASS`; `UPSTREAM_CORE_SAFE_POINT=PASS`.
+- `PGDMD_PGA_RELATION=PASS`: `PGDMD_ACCESSORY_OF_PGA`; nenhuma nova autoridade, grant ou função runtime criada.
+- `AUTHORITY_BOUNDARY=PASS`; `NO_PGA_RUNTIME=PASS`; `RECONCILIATION_CLOSURE=PASS`; `DEPENDENCY_REFERENCES=PASS`.
+- `RELEASE_IMMUTABILITY=PASS`: `VERSION=1.0.0`, tag `v1.0.0` preservada; `trabalho_compartilhado` liberado.

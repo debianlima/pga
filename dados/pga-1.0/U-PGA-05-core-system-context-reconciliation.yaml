@@ -1,0 +1,73 @@
+unit: U-PGA-05-CORE-SYSTEM-CONTEXT-RECONCILIATION
+nature: post_release_incremental_reconciliation
+refs:
+  pga_base: 17ace9afe02af7dcb5ec14df7843ea1a39d7aebb
+  pgd_u07: 743567ba2b4a5e6db204a9d508b7997a1b760326
+  pgh_main: edbfefa6ef4d0bd2e6581e6781e82e167c583b96
+  runtime: f033b622ce6a3e59f4a3d2d29f903b3f4a267b32
+  system_vision_catalog: c1f208fb3470eeced0fd3da96d948efa196cb38c
+system_vision_id: PGH-SUITE-SYSTEM-VISION-1
+reconciliation:
+  predecessor_unit: U-PGA-04-CORE-SYSTEM-CONTEXT
+  predecessor_result: BLOCKED_DEPENDENCY
+  predecessor_blocker_removed: true
+  blocker_removal_evidence:
+    pgh_u250_u255_closed: true
+    runtime_u250_closed: true
+    pgd_u07_closed: true
+  delta_inventory:
+  - U250 formalizes operational reconciliation but keeps runtime assignment/dispatch in PGD
+  - U255 adopts PGH-SUITE-SYSTEM-VISION-1 as architectural orientation without superseding normative authority
+  - PGD U07 pins the post-U250 runtime ownership boundary in current PGD state
+  - current PGH main resolves PGDMD as accessory domain-governance protocol under PGA
+  learning_preserved:
+  - PGA remains policy/authority/priority/gates/governed-evolution layer
+  - PGD remains tasks/messages/queues/leases/scheduler/runtime-state layer
+  - PGH remains knowledge/contracts/skills/semantics/evidence layer
+  - PGDMD specializes domain governance but does not create grants or runtime
+  lost_invariants: 0
+authority:
+  PGA: policy_authority_priority_gates_governed_evolution
+  PGDMD: accessory_domain_governance_under_PGA
+  PGH: knowledge_contracts_skills_semantics_evidence
+  PGD: tasks_messages_queues_leases_scheduler_runtime_state
+  RHGD: federation_without_second_scheduler
+runtime_boundary:
+  scheduler: false
+  worker: false
+  heartbeat: false
+  lease: false
+  runtime_state: false
+  pgd_reference: 743567ba2b4a5e6db204a9d508b7997a1b760326
+pgdmd:
+  canonical_relation: PGDMD_ACCESSORY_OF_PGA
+  role: versioned_domain_governance_protocol
+  creates_grants: false
+  creates_runtime: false
+  creates_scheduler: false
+  repository_extraction_required_now: false
+historical_auxiliary_dependency:
+  purpose: evidence_for_auxiliary_enablement_sequence
+  head: 366388d8c52f696d81b7277075b87e8fc144ca1b
+  preserved_as_historical_enablement_evidence: true
+  current_context_dependency: 743567ba2b4a5e6db204a9d508b7997a1b760326
+release:
+  version: 1.0.0
+  tag: v1.0.0
+  tag_commit: 0985ea0052436b07f9e6029df42bbafd68fda024
+  immutable: true
+  bump_required: false
+project_skill_change_required: 'NO'
+gates:
+  DELTA_INVENTORY: PASS
+  LEARNING_PRESERVED: PASS
+  PGD_U07_DEPENDENCY: PASS
+  UPSTREAM_CORE_SAFE_POINT: PASS
+  U250_OPERATIONAL_RECONCILIATION: PASS
+  U255_SYSTEM_VISION: PASS
+  PGDMD_PGA_RELATION: PASS
+  AUTHORITY_BOUNDARY: PASS
+  NO_PGA_RUNTIME: PASS
+  RELEASE_IMMUTABILITY: PASS
+  RECONCILIATION_CLOSURE: PASS
+  DEPENDENCY_REFERENCES: PASS
