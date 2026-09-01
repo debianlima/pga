@@ -93,3 +93,10 @@
 - `CATALOGO_SKILLS=PASS`, `SYNC_GUARD=PASS`, `RECONCILIATION_CLOSURE=PASS`, `DEPENDENCY_REFERENCES=PASS`.
 - Política Q3 fechada no PGA; execução operacional G4 continua separada e não foi apropriada por esta unidade.
 - `trabalho_compartilhado` liberado; release `v1.0.0` permaneceu imutável.
+
+## U-PGA-09-DETERMINISTIC-PRIORITY-POLICY — EM_CURSO
+- `telemetria_inicio=2026-09-01T18:10:33Z`; agente=`terminal-oracle`; base=`c151e58adf05339eee7f762fa0a96b401e4b6985`.
+- fonte pinada: `protocolo-governanca-heterogenea@f6c47aa104dbba0359afd69cff0fd58889c5b348:dados/pgh-2.0/U268-deterministic-election-fabric.yaml`, sha256 `44acaa08e273ec34a118ab092dc9b749ddf2e5d62d3121e8cfd4c96d6b83eb67`.
+- `DELTA_INVENTORY=PASS`: PGA já declara `policy_authority_priority_gates_governed_evolution`, mas ainda não materializa P0–P4/human-reserved.
+- `LEARNING_PRESERVED=PASS`: PGA continua sem scheduler/worker/lease/runtime/grant/preempção; execução permanece PGD/runtime-owner.
+- escopo: política P0_GOVERNED, P1_HIGH, P2_NORMAL, P3_LOW, P4_BACKGROUND; prioridade não concede autoridade, não preempta e não vence locks/leases/fences/human blocks.

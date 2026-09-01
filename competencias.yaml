@@ -22,3 +22,24 @@ competencias:
   tipo: global
   ref: dominio/telemetry-data-visualization/SKILL.md
   versao_minima: 2
+
+plano_competencias_u_pga_09:
+  unidade: U-PGA-09-DETERMINISTIC-PRIORITY-POLICY
+  congelado_em: '2026-09-01T18:10:33Z'
+  skill_projeto: pga-project@0.3.0
+  skills:
+  - desenvolvedor-de-software@15
+  - github-incremental-reconciliation@7
+  - governanca-ontologica-de-skills@1.0.5
+  - telemetry-data-visualization@2
+  fonte_contextual_nao_autoritativa: pgh@1.2.0-candidate@f6c47aa104dbba0359afd69cff0fd58889c5b348
+  portoes:
+  - DELTA_INVENTORY=PASS
+  - LEARNING_PRESERVED=PASS
+  - PRIORITY_BANDS=PASS
+  - AUTHORITY_PRIORITY_SEPARATION=PASS
+  - NO_AUTOMATIC_PREEMPTION=PASS
+  - NO_PGA_RUNTIME=PASS
+  - RELEASE_IMMUTABILITY=PASS
+  - RECONCILIATION_CLOSURE=PASS
+  - DEPENDENCY_REFERENCES=PASS
