@@ -44,3 +44,7 @@
 - Resultado desta unidade: `BLOCKED_DEPENDENCY`; nenhuma normalização, bump de release, mudança de autoridade, tag ou runtime foi executada.
 - Reserva liberada para não manter exclusão inútil.
 - Próximo gate: safe point final U250/U255 + U250 runtime; então abrir unidade sucessora com refs finais e rerodar os gates.
+
+## U-PGA-05-CORE-SYSTEM-CONTEXT-RECONCILIATION — unidade sucessora aberta
+- `telemetria_inicio=2026-09-01T13:35:57Z`; U-PGD-07 fechou `PASS` em `743567ba2b4a5e6db204a9d508b7997a1b760326`.
+- Escopo: reconciliar política/autoridade e PGDMD accessory; PGA continua sem scheduler/worker/lease/runtime vivo; `v1.0.0` imutável.

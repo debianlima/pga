@@ -5,7 +5,18 @@ release_alvo: v1.0.0
 estado_release: triad_ready
 repositorio: debianlima/pga
 skill_projeto: skills/pga/SKILL.md
-trabalho_compartilhado: {}
+trabalho_compartilhado:
+  unidade: U-PGA-05-CORE-SYSTEM-CONTEXT-RECONCILIATION
+  agente: ChatGPT-Redes
+  previsao_termino: "2026-09-01T17:40:00Z"
+  zona_exclusao:
+  - manifesto.yaml
+  - estado.md
+  - dados/telemetria-unidades.jsonl
+  - dados/pga-1.0/U-PGA-05-core-system-context-reconciliation.yaml
+  - docs/U-PGA-05-core-system-context-reconciliation.md
+  - tests/verify_u_pga_05_core_system_context.py
+  descricao: Reconciliar PGA pos-release com PGD U07, U250/U255 e PGDMD accessory sem runtime/scheduler e sem mover v1.0.0.
 entradas:
 - id: 1
   caminho: README.md
