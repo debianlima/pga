@@ -86,3 +86,10 @@
 - `AUTHORITY_BOUNDARY=PASS` e `NO_PGA_RUNTIME=PASS`: PGA não cria scheduler, worker, lease, runtime, grant ou preempção.
 - Gates locais: U08 PASS, projeto PASS, release 1.0 10/10 PASS, U05 PASS, U06 PASS, U07 PASS.
 - Aprendizado homologável: `pga-project@0.3.0`; catálogo é gate pendente antes do fechamento.
+
+## Fechamento U-PGA-08
+- Implementação homologada em `54e48b487a5640741285d7783b65f4c75ff10129`.
+- `pga-project@0.3.0` sincronizado no catálogo em `2df4195907b04109b961c40dcbf11af74b73ab7e`.
+- `CATALOGO_SKILLS=PASS`, `SYNC_GUARD=PASS`, `RECONCILIATION_CLOSURE=PASS`, `DEPENDENCY_REFERENCES=PASS`.
+- Política Q3 fechada no PGA; execução operacional G4 continua separada e não foi apropriada por esta unidade.
+- `trabalho_compartilhado` liberado; release `v1.0.0` permaneceu imutável.

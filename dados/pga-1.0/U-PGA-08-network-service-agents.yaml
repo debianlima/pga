@@ -15,22 +15,22 @@ policy:
   private_resources_shared_implicitly: false
   additional_sharing: explicit-grants-by-principal-group-tenant-public
 network_service_agents:
-  - role: network_control_agent
-    count: 1
-    lifecycle: ephemeral
-    scope: network-control-only
-    purpose: interconexao_saude_manutencao_rede_descentralizada
-    network_join_required: true
-    created_by_pga: false
-    runtime_owner: PGD/runtime-owner
-  - role: distributed_processing_agent
-    count: 1
-    lifecycle: ephemeral
-    scope: distributed-processing-only
-    purpose: receber_enviar_carga_cognitiva_rede
-    network_join_required: true
-    created_by_pga: false
-    runtime_owner: PGD/runtime-owner
+- role: network_control_agent
+  count: 1
+  lifecycle: ephemeral
+  scope: network-control-only
+  purpose: interconexao_saude_manutencao_rede_descentralizada
+  network_join_required: true
+  created_by_pga: false
+  runtime_owner: PGD/runtime-owner
+- role: distributed_processing_agent
+  count: 1
+  lifecycle: ephemeral
+  scope: distributed-processing-only
+  purpose: receber_enviar_carga_cognitiva_rede
+  network_join_required: true
+  created_by_pga: false
+  runtime_owner: PGD/runtime-owner
 ownership:
   policy_owner: PGA
   runtime_owner: PGD/runtime-owner
@@ -63,5 +63,5 @@ gates:
   AUTHORITY_BOUNDARY: PASS
   NO_PGA_RUNTIME: PASS
   RELEASE_IMMUTABILITY: PASS
-  RECONCILIATION_CLOSURE: PENDING
-  DEPENDENCY_REFERENCES: PENDING
+  RECONCILIATION_CLOSURE: PASS
+  DEPENDENCY_REFERENCES: PASS

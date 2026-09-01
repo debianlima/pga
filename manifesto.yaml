@@ -5,24 +5,7 @@ release_alvo: v1.0.0
 estado_release: triad_ready
 repositorio: debianlima/pga
 skill_projeto: skills/pga/SKILL.md
-trabalho_compartilhado:
-  unidade: U-PGA-08-NETWORK-SERVICE-AGENTS
-  agente: ChatGPT-Redes
-  previsao_termino: '2026-09-01T19:30:00Z'
-  zona_exclusao:
-  - manifesto.yaml
-  - estado.md
-  - lexico.yaml
-  - competencias.yaml
-  - skills/pga/SKILL.md
-  - dados/telemetria-unidades.jsonl
-  - contratos/pga-1.0/network-service-agents.schema.json
-  - dados/pga-1.0/U-PGA-08-network-service-agents.yaml
-  - docs/U-PGA-08-network-service-agents.md
-  - tests/verify_u_pga_08_network_service_agents.py
-  descricao: Materializar a política Q3 private-by-default e exatamente dois agentes
-    efêmeros escopados após adesão explícita à rede; sem compartilhar privados implicitamente
-    e sem criar runtime/scheduler/lease no PGA.
+trabalho_compartilhado: {}
 entradas:
 - id: 1
   caminho: README.md
