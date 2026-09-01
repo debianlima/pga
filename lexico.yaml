@@ -6,5 +6,18 @@ termos:
   EvolutionProposal: proposta de evolucao governada
   HumanPreferenceEvidence: evidencia humana usada como insumo, nao mutacao direta
   PGDMD: protocolo acessorio de governanca de dominio subordinado ao PGA
-  NormativeDomainPackage: pacote versionado de modelo/politica/norma/processo/procedimento de dominio
-  DomainGovernanceException: excecao de dominio que exige autoridade e decisao explicitamente referenciadas
+  NormativeDomainPackage: pacote versionado de modelo/politica/norma/processo/procedimento
+    de dominio
+  DomainGovernanceException: excecao de dominio que exige autoridade e decisao explicitamente
+    referenciadas
+  GovernanceAttentionItem:
+    definicao: item de atenção humana do PGA para decisão ainda não resolvida, com
+      projeto/tarefa/evidência/categoria/opções/impacto/reversibilidade/dependências/deadline/autoridade
+      e ações governadas
+    limite: decisão RESOLVED/RESOLVED_PROVENANCE sai da fila humana; follow-up técnico
+      permanece separado e auditável
+  GovernanceTechnicalFollowUp:
+    definicao: trabalho técnico rastreável derivado de decisão humana já resolvida,
+      sempre ligado ao decision_id e à evidência de origem
+    limite: não reabre decisão humana, não cria autoridade e não implica scheduler/lease/runtime
+      no PGA

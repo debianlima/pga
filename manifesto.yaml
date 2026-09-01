@@ -154,7 +154,7 @@ entradas:
 - id: 21
   caminho: contratos/pga-1.0/governance-attention.schema.json
   tipo: contrato
-  status: em_curso
+  status: aceito
   consome:
   - pgh-governance-human-decisions/1
   - U251-G5-GOVERNANCE
@@ -164,7 +164,7 @@ entradas:
 - id: 22
   caminho: dados/pga-1.0/U-PGA-07-governance-attention.yaml
   tipo: dados
-  status: em_curso
+  status: aceito
   consome:
   - pgh-governance-human-decisions/1
   - U251-G5-GOVERNANCE
@@ -174,7 +174,7 @@ entradas:
 - id: 23
   caminho: docs/U-PGA-07-governance-attention.md
   tipo: documentacao
-  status: em_curso
+  status: aceito
   consome:
   - pgh-governance-human-decisions/1
   - U251-G5-GOVERNANCE
@@ -184,7 +184,7 @@ entradas:
 - id: 24
   caminho: tests/verify_u_pga_07_governance_attention.py
   tipo: teste
-  status: em_curso
+  status: aceito
   consome:
   - pgh-governance-human-decisions/1
   - U251-G5-GOVERNANCE

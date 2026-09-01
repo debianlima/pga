@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pga-governance-attention/1",
+  "title": "PGA Governance Attention Projection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "unit", "source", "governance_attention_model", "human_attention_queue", "resolved_decisions", "technical_followups", "authority_boundary", "release", "gates"],
+  "properties": {
+    "schema": {"const": "pga-governance-attention/1"},
+    "unit": {"const": "U-PGA-07-GOVERNANCE-ATTENTION-PROJECTION"},
+    "source": {"$ref": "#/$defs/Source"},
+    "governance_attention_model": {"$ref": "#/$defs/AttentionModel"},
+    "human_attention_queue": {"type": "array", "items": {"$ref": "#/$defs/GovernanceAttentionItem"}},
+    "resolved_decisions": {"type": "array", "minItems": 7, "maxItems": 7, "items": {"$ref": "#/$defs/ResolvedDecision"}},
+    "technical_followups": {"type": "array", "minItems": 7, "maxItems": 7, "items": {"$ref": "#/$defs/TechnicalFollowUp"}},
+    "authority_boundary": {"$ref": "#/$defs/AuthorityBoundary"},
+    "release": {"$ref": "#/$defs/Release"},
+    "gates": {"type": "object", "additionalProperties": {"enum": ["PASS", "PENDING"]}}
+  },
+  "$defs": {
+    "StringList": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "Source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["repository", "commit", "path", "sha256", "schema", "scope"],
+      "properties": {
+        "repository": {"const": "debianlima/pgh-distributed-session-control-plane"},
+        "commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+        "path": {"const": "config/3.0/governance-decisions.yaml"},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "schema": {"const": "pgh-governance-human-decisions/1"},
+        "scope": {"const": "Q1-Q7"}
+      }
+    },
+    "AttentionModel": {
+      "type": "object", "additionalProperties": false,
+      "required": ["entity", "required_fields", "allowed_actions", "resolved_decision_rule", "repository_divergence_creates_attention_item"],
+      "properties": {
+        "entity": {"const": "GovernanceAttentionItem"},
+        "required_fields": {"$ref": "#/$defs/StringList"},
+        "allowed_actions": {"type": "array", "const": ["more_info", "approve", "reject", "modify"]},
+        "resolved_decision_rule": {"const": "remove_from_human_queue_preserve_technical_followup"},
+        "repository_divergence_creates_attention_item": {"const": true}
+      }
+    },
+    "GovernanceAttentionItem": {
+      "type": "object", "additionalProperties": false,
+      "required": ["decision_id", "project_ref", "task_ref", "evidence_refs", "category", "options", "impact", "reversibility", "dependencies", "deadline", "required_authority", "actions"],
+      "properties": {
+        "decision_id": {"type": "string", "minLength": 1},
+        "project_ref": {"type": "string", "minLength": 1},
+        "task_ref": {"type": "string", "minLength": 1},
+        "evidence_refs": {"$ref": "#/$defs/StringList"},
+        "category": {"type": "string", "minLength": 1},
+        "options": {"$ref": "#/$defs/StringList"},
+        "impact": {"type": "string", "minLength": 1},
+        "reversibility": {"type": "string", "minLength": 1},
+        "dependencies": {"$ref": "#/$defs/StringList"},
+        "deadline": {"type": ["string", "null"]},
+        "required_authority": {"type": "string", "minLength": 1},
+        "actions": {"type": "array", "const": ["more_info", "approve", "reject", "modify"]}
+      }
+    },
+    "ResolvedDecision": {
+      "type": "object", "additionalProperties": false,
+      "required": ["decision_id", "project_ref", "source_status", "selected", "authority", "queue_disposition", "decision_summary", "evidence_refs"],
+      "properties": {
+        "decision_id": {"type": "string", "minLength": 1},
+        "project_ref": {"type": "string", "minLength": 1},
+        "source_status": {"enum": ["RESOLVED", "RESOLVED_PROVENANCE"]},
+        "selected": {"type": "string", "minLength": 1},
+        "authority": {"const": "human-operator"},
+        "queue_disposition": {"const": "REMOVED_RESOLVED"},
+        "decision_summary": {"type": "string", "minLength": 1},
+        "evidence_refs": {"$ref": "#/$defs/StringList"}
+      }
+    },
+    "TechnicalFollowUp": {
+      "type": "object", "additionalProperties": false,
+      "required": ["follow_up_id", "decision_id", "project_ref", "task_refs", "action", "state", "source_kind", "evidence_refs", "human_decision_required"],
+      "properties": {
+        "follow_up_id": {"type": "string", "minLength": 1},
+        "decision_id": {"type": "string", "minLength": 1},
+        "project_ref": {"type": "string", "minLength": 1},
+        "task_refs": {"$ref": "#/$defs/StringList"},
+        "action": {"type": "string", "minLength": 1},
+        "state": {"enum": ["OPEN_TECHNICAL", "SATISFIED_FROM_SOURCE", "CONDITIONAL"]},
+        "source_kind": {"enum": ["explicit_follow_up", "decision_semantics", "source_evidence"]},
+        "evidence_refs": {"$ref": "#/$defs/StringList"},
+        "human_decision_required": {"const": false}
+      }
+    },
+    "AuthorityBoundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["PGA", "creates_scheduler", "creates_worker", "creates_lease", "creates_runtime_state", "creates_grant", "changes_human_decision"],
+      "properties": {
+        "PGA": {"const": "policy_authority_priority_gates_governed_evolution"},
+        "creates_scheduler": {"const": false},
+        "creates_worker": {"const": false},
+        "creates_lease": {"const": false},
+        "creates_runtime_state": {"const": false},
+        "creates_grant": {"const": false},
+        "changes_human_decision": {"const": false}
+      }
+    },
+    "Release": {
+      "type": "object", "additionalProperties": false,
+      "required": ["version", "tag", "immutable"],
+      "properties": {
+        "version": {"const": "1.0.0"},
+        "tag": {"const": "v1.0.0"},
+        "immutable": {"const": true}
+      }
+    }
+  }
+}

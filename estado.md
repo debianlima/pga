@@ -65,3 +65,10 @@
 - `DOMAIN_PACKAGE_SCHEMA=PASS`; `PGA_AUTHORITY_PRESERVED=PASS`; `NO_GRANT_CREATION=PASS`; `NO_RUNTIME_CREATION=PASS`; `NO_SKILL_OWNERSHIP_TRANSFER=PASS`.
 - PGDMD modela referências normativas de domínio, precedência, herança e exceções com autoridade/decisão explícitas; PGH recebe refs versionadas e PGD recebe apenas restrições aplicáveis.
 - `RECONCILIATION_CLOSURE=PASS`; `DEPENDENCY_REFERENCES=PASS`; `VERSION=1.0.0` e `v1.0.0` preservados; `trabalho_compartilhado` liberado.
+## U-PGA-07-GOVERNANCE-ATTENTION-PROJECTION — gates locais PASS
+- Fonte Q1–Q7 fixada em `debianlima/pgh-distributed-session-control-plane@f5047f72914c6634982df30c8ce0f8747af5cfb3:config/3.0/governance-decisions.yaml`, SHA-256 `cc79afcd94345752c0e0b5cf9883c48a5956f09a91bcde990fccb941f4ff903b`.
+- `GovernanceAttentionItem` materializado como contrato PGA; Q1–Q7 estão resolvidas e recebem `REMOVED_RESOLVED`, portanto a fila humana projetada contém 0 itens.
+- Sete `GovernanceTechnicalFollowUp` preservam trabalho derivado sem reabrir decisão humana.
+- `AUTHORITY_BOUNDARY=PASS` e `NO_PGA_RUNTIME=PASS`: nenhuma criação de scheduler, worker, lease, grant ou estado runtime.
+- Gates locais: U07 PASS, projeto PASS, release 1.0 10/10 PASS, U05 PASS, U06 PASS.
+- Aprendizado homologável: `pga-project@0.2.0`; sincronização de catálogo ainda é gate antes do fechamento.

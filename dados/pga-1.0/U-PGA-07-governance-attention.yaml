@@ -1,0 +1,173 @@
+schema: pga-governance-attention/1
+unit: U-PGA-07-GOVERNANCE-ATTENTION-PROJECTION
+source:
+  repository: debianlima/pgh-distributed-session-control-plane
+  commit: f5047f72914c6634982df30c8ce0f8747af5cfb3
+  path: config/3.0/governance-decisions.yaml
+  sha256: cc79afcd94345752c0e0b5cf9883c48a5956f09a91bcde990fccb941f4ff903b
+  schema: pgh-governance-human-decisions/1
+  scope: Q1-Q7
+governance_attention_model:
+  entity: GovernanceAttentionItem
+  required_fields:
+    - decision_id
+    - project_ref
+    - task_ref
+    - evidence_refs
+    - category
+    - options
+    - impact
+    - reversibility
+    - dependencies
+    - deadline
+    - required_authority
+    - actions
+  allowed_actions: [more_info, approve, reject, modify]
+  resolved_decision_rule: remove_from_human_queue_preserve_technical_followup
+  repository_divergence_creates_attention_item: true
+human_attention_queue: []
+resolved_decisions:
+  - decision_id: Q1-WORK34-KEY-AUTH
+    project_ref: pgh-suite-3.0-governed-candidate
+    source_status: RESOLVED
+    selected: A
+    authority: human-operator
+    queue_disposition: REMOVED_RESOLVED
+    decision_summary: chave pública SSH dedicada autorizada para Work 34; segredo não persiste
+    evidence_refs: [governance-decisions.yaml#Q1-WORK34-KEY-AUTH, KEY_AUTH=PASS]
+  - decision_id: Q2-DESKTOP-ARCH
+    project_ref: pgh-suite-3.0-governed-candidate
+    source_status: RESOLVED
+    selected: B
+    authority: human-operator
+    queue_disposition: REMOVED_RESOLVED
+    decision_summary: Desktop 3.0 Windows-first com núcleo compilado/nativo
+    evidence_refs: [governance-decisions.yaml#Q2-DESKTOP-ARCH]
+  - decision_id: Q3-NETWORK-SHARING-DEFAULT
+    project_ref: pga
+    source_status: RESOLVED
+    selected: PRIVATE_PLUS_TWO_NETWORK_SERVICE_AGENTS
+    authority: human-operator
+    queue_disposition: REMOVED_RESOLVED
+    decision_summary: privado por padrão; adesão explícita cria dois agentes temporários escopados de rede
+    evidence_refs: [governance-decisions.yaml#Q3-NETWORK-SHARING-DEFAULT]
+  - decision_id: Q4-H09-PROVENANCE
+    project_ref: protocolo-governanca-heterogenea
+    source_status: RESOLVED_PROVENANCE
+    selected: HUMAN_ATTESTATION
+    authority: human-operator
+    queue_disposition: REMOVED_RESOLVED
+    decision_summary: proveniência histórica H09 atestada; hash esperado permanece NAO DECLARADO
+    evidence_refs: [governance-decisions.yaml#Q4-H09-PROVENANCE]
+  - decision_id: Q5-T069-MITIGATION
+    project_ref: protocolo-governanca-heterogenea
+    source_status: RESOLVED
+    selected: APPROVED_EXISTING_MITIGATION_PLAN
+    authority: human-operator
+    queue_disposition: REMOVED_RESOLVED
+    decision_summary: executar mitigação T-069 já aprovada sem interrupção de rede
+    evidence_refs: [governance-decisions.yaml#Q5-T069-MITIGATION, dados/pgh-2.0/U28-legacy-ipsec-router-reconciliation.yaml]
+  - decision_id: Q6-OTEL-SIGNOZ-PROJECT-SKILLS
+    project_ref: pgh-suite-all-projects-v3
+    source_status: RESOLVED
+    selected: A
+    authority: human-operator
+    queue_disposition: REMOVED_RESOLVED
+    decision_summary: OpenTelemetry e SigNoz recebem Project-Skills separadas por fork
+    evidence_refs: [governance-decisions.yaml#Q6-OTEL-SIGNOZ-PROJECT-SKILLS]
+  - decision_id: Q7-ATU-PHYSICAL-PROMOTION
+    project_ref: pgh-atu-switch
+    source_status: RESOLVED
+    selected: B
+    authority: human-operator
+    queue_disposition: REMOVED_RESOLVED
+    decision_summary: thresholds ATU somente após benchmark físico exclusivo e freeze humano/contratual
+    evidence_refs: [governance-decisions.yaml#Q7-ATU-PHYSICAL-PROMOTION]
+technical_followups:
+  - follow_up_id: FU-Q1-WORK34-KEY-AUTH
+    decision_id: Q1-WORK34-KEY-AUTH
+    project_ref: pgh-suite-3.0-governed-candidate
+    task_refs: [U-241-PGH-SUITE-3.0-GOVERNED-BOOTSTRAP]
+    action: verificar instalação somente da chave pública, fingerprint e KEY_AUTH sem persistir senha
+    state: SATISFIED_FROM_SOURCE
+    source_kind: source_evidence
+    evidence_refs: [governance-decisions.yaml#Q1-WORK34-KEY-AUTH, KEY_AUTH=PASS]
+    human_decision_required: false
+  - follow_up_id: FU-Q2-DESKTOP-NATIVE-GATE
+    decision_id: Q2-DESKTOP-ARCH
+    project_ref: pgh-suite-3.0-governed-candidate
+    task_refs: [U241-DESKTOP-WINDOWS-FIRST]
+    action: comparar Rust, C++ e .NET NativeAOT pelos critérios técnicos já aprovados
+    state: OPEN_TECHNICAL
+    source_kind: decision_semantics
+    evidence_refs: [governance-decisions.yaml#Q2-DESKTOP-ARCH]
+    human_decision_required: false
+  - follow_up_id: FU-Q3-NETWORK-SERVICE-AGENTS
+    decision_id: Q3-NETWORK-SHARING-DEFAULT
+    project_ref: pga
+    task_refs: [U241-NETWORK-SERVICE-AGENTS]
+    action: reconciliar política private-by-default e os dois agentes efêmeros escopados sem compartilhar recursos privados implicitamente
+    state: OPEN_TECHNICAL
+    source_kind: decision_semantics
+    evidence_refs: [governance-decisions.yaml#Q3-NETWORK-SHARING-DEFAULT]
+    human_decision_required: false
+  - follow_up_id: FU-Q4-H09-HASH-IF-FOUND
+    decision_id: Q4-H09-PROVENANCE
+    project_ref: protocolo-governanca-heterogenea
+    task_refs: [H09-HISTORICAL-PROVENANCE]
+    action: se o artefato histórico canônico for localizado, registrar somente o hash observado; nunca regenerar hash esperado
+    state: CONDITIONAL
+    source_kind: explicit_follow_up
+    evidence_refs: [governance-decisions.yaml#Q4-H09-PROVENANCE]
+    human_decision_required: false
+  - follow_up_id: FU-Q5-T069-MITIGATION
+    decision_id: Q5-T069-MITIGATION
+    project_ref: protocolo-governanca-heterogenea
+    task_refs: [T-069]
+    action: executar o plano de mitigação aprovado sem outage e sem upgrade criptográfico especulativo
+    state: OPEN_TECHNICAL
+    source_kind: decision_semantics
+    evidence_refs: [governance-decisions.yaml#Q5-T069-MITIGATION, dados/pgh-2.0/U28-legacy-ipsec-router-reconciliation.yaml]
+    human_decision_required: false
+  - follow_up_id: FU-Q6-OTEL-SIGNOZ-SKILLS
+    decision_id: Q6-OTEL-SIGNOZ-PROJECT-SKILLS
+    project_ref: pgh-suite-all-projects-v3
+    task_refs: [U241-OTEL-PROJECT-SKILL, U241-SIGNOZ-PROJECT-SKILL]
+    action: reconciliar cada fork com upstream, manter exatamente uma Project-Skill por fork e registrar no catálogo no mesmo turno
+    state: OPEN_TECHNICAL
+    source_kind: explicit_follow_up
+    evidence_refs: [governance-decisions.yaml#Q6-OTEL-SIGNOZ-PROJECT-SKILLS]
+    human_decision_required: false
+  - follow_up_id: FU-Q7-ATU-EXCLUSIVE-BASELINE
+    decision_id: Q7-ATU-PHYSICAL-PROMOTION
+    project_ref: pgh-atu-switch
+    task_refs: [U241-ATU-EXCLUSIVE-BENCHMARK]
+    action: produzir benchmark físico exclusivo e baseline limpo antes de derivar candidatos de thresholds; freeze permanece humano/contratual
+    state: OPEN_TECHNICAL
+    source_kind: decision_semantics
+    evidence_refs: [governance-decisions.yaml#Q7-ATU-PHYSICAL-PROMOTION]
+    human_decision_required: false
+authority_boundary:
+  PGA: policy_authority_priority_gates_governed_evolution
+  creates_scheduler: false
+  creates_worker: false
+  creates_lease: false
+  creates_runtime_state: false
+  creates_grant: false
+  changes_human_decision: false
+release:
+  version: 1.0.0
+  tag: v1.0.0
+  immutable: true
+gates:
+  DELTA_INVENTORY: PASS
+  LEARNING_PRESERVED: PASS
+  SOURCE_PIN: PASS
+  ATTENTION_SCHEMA: PASS
+  RESOLVED_QUEUE_DRAIN: PASS
+  FOLLOWUP_COVERAGE: PASS
+  AUTHORITY_BOUNDARY: PASS
+  NO_PGA_RUNTIME: PASS
+  RELEASE_IMMUTABILITY: PASS
+  RECONCILIATION_CLOSURE: PENDING
+  DEPENDENCY_REFERENCES: PENDING
