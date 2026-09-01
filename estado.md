@@ -72,3 +72,9 @@
 - `AUTHORITY_BOUNDARY=PASS` e `NO_PGA_RUNTIME=PASS`: nenhuma criação de scheduler, worker, lease, grant ou estado runtime.
 - Gates locais: U07 PASS, projeto PASS, release 1.0 10/10 PASS, U05 PASS, U06 PASS.
 - Aprendizado homologável: `pga-project@0.2.0`; sincronização de catálogo ainda é gate antes do fechamento.
+
+## Fechamento U-PGA-07
+- Implementação homologada em `9dde7d4647d536219e1104712ff1cfa438ce8171`.
+- `pga-project@0.2.0` registrado no catálogo em `03a1f45d6edda920bd765d412aa27f3018c5da71`.
+- `CATALOGO_SKILLS=PASS`, `SYNC_GUARD=PASS`, `RECONCILIATION_CLOSURE=PASS`, `DEPENDENCY_REFERENCES=PASS`.
+- `trabalho_compartilhado` liberado; release `v1.0.0` permaneceu imutável.

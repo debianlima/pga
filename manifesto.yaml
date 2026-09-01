@@ -5,24 +5,7 @@ release_alvo: v1.0.0
 estado_release: triad_ready
 repositorio: debianlima/pga
 skill_projeto: skills/pga/SKILL.md
-trabalho_compartilhado:
-  unidade: U-PGA-07-GOVERNANCE-ATTENTION-PROJECTION
-  agente: ChatGPT-Redes
-  previsao_termino: '2026-09-01T18:30:00Z'
-  zona_exclusao:
-  - manifesto.yaml
-  - estado.md
-  - lexico.yaml
-  - competencias.yaml
-  - skills/pga/SKILL.md
-  - dados/telemetria-unidades.jsonl
-  - contratos/pga-1.0/governance-attention.schema.json
-  - dados/pga-1.0/U-PGA-07-governance-attention.yaml
-  - docs/U-PGA-07-governance-attention.md
-  - tests/verify_u_pga_07_governance_attention.py
-  descricao: 'Materializar a projeção PGA de GovernanceAttentionItem para Q1–Q7: decisões
-    resolvidas saem da fila humana, follow-ups técnicos permanecem auditáveis; sem
-    criar runtime, scheduler, lease ou autoridade nova.'
+trabalho_compartilhado: {}
 entradas:
 - id: 1
   caminho: README.md
