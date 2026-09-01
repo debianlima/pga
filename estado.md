@@ -109,3 +109,10 @@
 - `NO_PGA_RUNTIME=PASS`; PGA não cria scheduler, worker, lease, runtime, grant nem preempção.
 - Regressão local: projeto PASS; release 1.0 `10/10 PASS`; U05, U06, U07, U08 e U09 PASS.
 - Aprendizado homologável materializado em `pga-project@0.4.0`; catálogo/sync guard e fechamento remoto ainda são gates pendentes.
+
+## Fechamento U-PGA-09
+- Implementação homologada em `f690807dbc9084bc3d9a1b7751d8b042dddc5fb8`.
+- `pga-project@0.4.0` sincronizado no catálogo em `12ea3db86432675f7689e5ea4fb6c049d1f9ffdd`.
+- `CATALOGO_SKILLS=PASS accepted=80 pending=1 canonical=80`; `SYNC_GUARD=PASS`; candidata intencional do catálogo permanece fail-closed.
+- `RECONCILIATION_CLOSURE=PASS`; `DEPENDENCY_REFERENCES=PASS`; prioridade P0-P4 permanece normativa e não cria runtime/autoridade/preempção.
+- `trabalho_compartilhado` liberado; release `v1.0.0` permaneceu imutável.

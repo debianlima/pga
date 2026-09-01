@@ -5,25 +5,7 @@ release_alvo: v1.0.0
 estado_release: triad_ready
 repositorio: debianlima/pga
 skill_projeto: skills/pga/SKILL.md
-trabalho_compartilhado:
-  projeto: pga
-  caminho: /srv/mcp-workspace/u31-doc-suite/.wt-pga-u09-priority-20260901T180931Z
-  unidade: U-PGA-09-DETERMINISTIC-PRIORITY-POLICY
-  descricao: materializar autoridade normativa P0-P4/human-reserved de U268 sem scheduler runtime ou preempcao automatica
-  agente: terminal-oracle
-  atualizado_em: '2026-09-01T20:38:28Z'
-  previsao_termino: '2026-09-01T22:38:28Z'
-  prorrogado_em: '2026-09-01T20:38:28Z'
-  zona_exclusao:
-  - manifesto.yaml
-  - estado.md
-  - competencias.yaml
-  - dados/telemetria-unidades.jsonl
-  - contratos/pga-1.0/deterministic-priority-policy.schema.json
-  - dados/pga-1.0/U-PGA-09-deterministic-priority-policy.yaml
-  - docs/U-PGA-09-deterministic-priority-policy.md
-  - tests/verify_u_pga_09_deterministic_priority_policy.py
-  - skills/pga/SKILL.md
+trabalho_compartilhado: {}
 entradas:
 - id: 1
   caminho: README.md
