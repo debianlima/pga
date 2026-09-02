@@ -14,20 +14,21 @@
 - `estado_release: triad_ready` — superado pela evidência contratualmente validada `maturity: homologated` da release 1.0.0.
 
 ## Decisões humanas pendentes
-- Nenhuma.
+- Nenhuma decisão humana local do PGA.
 
 ## Decisões fechadas nesta emenda
-- U-PGA-12 classificou o `pending=1` do catálogo global como estado intencional, não falha: `governanca-operacional-de-ambientes@0.1.4` permanece `em_curso` por contrato e evidência canônica.
-- A evidência `ENV-GOV-REALUSE-WV-L07-20260901` registra `observed_usage=false`, `bindings_created=0`, `concrete_human_binding=false`, `h10_productive_write=BLOCKED` e resultado `BLOCKED_NO_PROMOTION`; promover a skill seria incorreto.
-- O PGA não referencia `governanca-operacional-de-ambientes` nem `CT-ENV-GOV`; a pendência global não pertence ao fecho local da release PGA 1.0.0.
-- O validador do catálogo foi endurecido no commit `e5323258f4746c0786080290028e20d66ad72362` para identificar cada skill pendente por id, status e versão sem transformar pendência legítima em erro.
+- U-PGA-13 provou que `enrior` estava incorretamente em `projetos_sem_skill`: o remoto declara `enrior-project@1.0.5` em `.github/skills/enrior-project/SKILL.md`, e o catálogo já registrava essa raiz como `aceito`.
+- O catálogo global foi reconciliado no commit `ab2fabca8f06868a81029fccedb1f1e94e9fa259`: `enrior` saiu de `projetos_sem_skill`, o hash de `controle/caminhos-canonicos.yaml` foi atualizado e o validador passou a rejeitar a contradição conservadora `<projeto>-project/<projeto>-projeto` ↔ `projetos_sem_skill`.
+- Após a correção, permanecem cinco projetos realmente sem skill raiz visível nas branches observadas: `laboratorio_hardware_2025`, `Laboratario-de-Hardware-2025-web`, `controle_matheus_eng_docentes`, `projeto_dependencia` e `SentinelDevLima`.
+- O par de laboratórios possui candidato relacionado já registrado, `laboratorios-informatica-ifc-videira-projeto@0.1.1`; nenhuma vinculação foi inferida por similaridade.
 
 ## Pendências técnicas não humanas
-- Nenhuma local no PGA após U-PGA-12.
-- Externa ao PGA: `governanca-operacional-de-ambientes@0.1.4` permanece `em_curso` até existir uso real + binding humano concreto conforme seus próprios portões.
+- Nenhuma local no PGA após U-PGA-13.
+- Externa ao PGA: cinco projetos continuam em `projetos_sem_skill`; a próxima ação de vínculo/bootstrap depende de decisão humana no contexto de cada projeto.
+- Externa ao PGA: `governanca-operacional-de-ambientes@0.1.4` permanece `em_curso` por seus próprios portões de uso real/binding concreto.
 
 ## Trabalho compartilhado
-- ponteiro: `manifesto.yaml.trabalho_compartilhado` — vazio após fechamento de U-PGA-12.
+- ponteiro: `manifesto.yaml.trabalho_compartilhado` — vazio após fechamento de U-PGA-13.
 
 ## Competências ativas nesta unidade
 - `pga-project@0.4.0` — skill de projeto.
@@ -35,23 +36,22 @@
 - `github-incremental-reconciliation@7`.
 - `governanca-ontologica-de-skills@1.0.5`.
 - `telemetry-data-visualization@2`.
-- `governanca-operacional-de-ambientes@0.1.4` — alvo auditado; permaneceu candidata.
 
 ## Competências instaladas para unidades futuras
 - Nenhuma alteração nesta unidade.
 
 ## Falhas de portão por tipo de entrada
-- `estrutura`: namespace fechado desde U10; sem regressão em U12.
-- `rastro`: enforcement prospectivo ativo desde U11; sem regressão em U12.
-- `catalogo-global`: `pending=1` classificado como legítimo; `CATALOGO_SKILLS=PASS`, `SYNC_GUARD=PASS` e gates ENV-GOV permanecem PASS com write produtivo diferido.
-- `dados`: telemetria U04–U11 parseável e pareada; U10 preserva a não conformidade histórica de início tardio sem mascará-la como PASS.
+- `estrutura`: namespace fechado desde U10; sem regressão em U13.
+- `rastro`: enforcement prospectivo ativo desde U11; sem regressão em U13.
+- `catalogo-global`: contradição `enrior`↔`projetos_sem_skill` corrigida; `CATALOGO_SKILLS=PASS` e `SYNC_GUARD=PASS` após atualização do hash canônico.
+- `dados`: telemetria U04–U12 parseável e pareada; U10 preserva a não conformidade histórica de início tardio sem mascará-la como PASS.
 
 ## Divergências da última reconciliação
-- corrigidas: ambiguidade operacional de `pending=1` removida do output do validador global; agora o item pendente é identificado explicitamente.
-- pendentes de autorização: nenhuma no PGA.
+- corrigidas: `enrior` removido de `projetos_sem_skill` com gate prospectivo conservador; projeção de hash reconciliada.
+- pendentes de autorização: vínculos/bootstrap dos cinco projetos externos sem skill raiz; nenhuma pendência local do PGA.
 
 ## Entradas aceitas
 - 1–33.
 
 ## Próxima unidade
-- Nenhuma unidade local pendente; nova unidade PGA deve nascer de decisão/contrato posterior, sem reabrir a release `v1.0.0`.
+- Nenhuma unidade local PGA pendente; continuidade global depende de decisão humana de vínculo/bootstrap para os projetos externos sem skill raiz.
