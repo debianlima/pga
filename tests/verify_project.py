@@ -1,5 +1,5 @@
 from pathlib import Path
-import json, yaml, jsonschema
+import json, yaml, jsonschema, subprocess
 r=Path(__file__).resolve().parents[1]
 req=['README.md','VERSION','manifesto.yaml','competencias.yaml','estado.md','lexico.yaml','skills/pga/SKILL.md','docs/U-PGA-01-msgcd-u20-handoff.md','contratos/pga-1.0/release.schema.json','dados/pga-1.0/U-PGA-02-release-evidence.yaml','docs/U-PGA-02-release-1.0.md','tests/verify_release_1_0.py']
 assert all((r/x).exists() for x in req)
@@ -7,6 +7,23 @@ assert len(list(r.glob('skills/*/SKILL.md')))==1
 assert (r/'VERSION').read_text().strip()=='1.0.0'
 m=yaml.safe_load((r/'manifesto.yaml').read_text(encoding='utf-8'))
 assert m['versao_contrato']==3 and m['release_alvo']=='v1.0.0'
+assert m['estado_release']=='homologated'
+entries=m['entradas']
+ids=[x['id'] for x in entries]; paths=[x['caminho'] for x in entries]
+assert len(ids)==len(set(ids)) and len(paths)==len(set(paths))
+tracked=set(subprocess.check_output(['git','-C',str(r),'ls-files'], text=True).splitlines())
+assert tracked==set(paths), f'namespace divergence tracked_only={sorted(tracked-set(paths))} declared_only={sorted(set(paths)-tracked)}'
+telemetry=r/'dados/telemetria-unidades.jsonl'
+events=[json.loads(line) for line in telemetry.read_text(encoding='utf-8').splitlines() if line.strip()]
+by_unit={}
+for event in events:
+    by_unit.setdefault(event['unidade'], []).append(event['evento'])
+active=(m.get('trabalho_compartilhado') or {}).get('unidade')
+for unit, values in by_unit.items():
+    expected=['telemetria_inicio'] if unit==active else ['telemetria_inicio','telemetria_fim']
+    assert sorted(values)==sorted(expected), {unit: values, 'active': active}
+state=(r/'estado.md').read_text(encoding='utf-8')
+assert 'EM_CURSO' not in state and '`pga-project@0.4.0`' in state and '- 1–33.' in state
 a=m['auxiliar_construcao_conciliacao']
 assert a['habilitado'] is True
 assert a['natureza']=='politica_operacional_pos_release' and a['preserva_release_v1_0_0'] is True

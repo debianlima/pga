@@ -2,7 +2,7 @@ projeto: pga
 nome: Protocolo de Autogovernanca
 versao_contrato: 3
 release_alvo: v1.0.0
-estado_release: triad_ready
+estado_release: homologated
 repositorio: debianlima/pga
 skill_projeto: skills/pga/SKILL.md
 trabalho_compartilhado: {}
@@ -246,6 +246,12 @@ entradas:
   - pga-deterministic-priority-policy-contract
   produz: pga-deterministic-priority-policy-gate
   aceite: tests/verify_u_pga_09_deterministic_priority_policy.py
+- id: 33
+  caminho: dados/telemetria-unidades.jsonl
+  tipo: dados
+  status: aceito
+  produz: pga-unit-telemetry-log
+  aceite: tests/verify_project.py
 auxiliar_construcao_conciliacao:
   habilitado: true
   papel: auxiliar
