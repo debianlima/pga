@@ -17,15 +17,17 @@
 - Nenhuma.
 
 ## Decisões fechadas nesta emenda
-- U-PGA-11 preservou o plano congelado `pga-project@0.3.0` da U09 como procedência histórica; ele não é divergência frente à skill atual `0.4.0`.
-- U-PGA-11 auditou o rastro pós-release: quatro commits U05/U06 têm trailers históricos incompletos (`Skill`/`Maquina`), mas seus artefatos foram posteriormente reexecutados e homologados por U07–U09; o histórico publicado não foi reescrito.
-- U-PGA-11 adicionou verificação prospectiva de trailers e correspondência `Entrada`↔arquivos a partir do fechamento U10 (`871f0294...`).
+- U-PGA-12 classificou o `pending=1` do catálogo global como estado intencional, não falha: `governanca-operacional-de-ambientes@0.1.4` permanece `em_curso` por contrato e evidência canônica.
+- A evidência `ENV-GOV-REALUSE-WV-L07-20260901` registra `observed_usage=false`, `bindings_created=0`, `concrete_human_binding=false`, `h10_productive_write=BLOCKED` e resultado `BLOCKED_NO_PROMOTION`; promover a skill seria incorreto.
+- O PGA não referencia `governanca-operacional-de-ambientes` nem `CT-ENV-GOV`; a pendência global não pertence ao fecho local da release PGA 1.0.0.
+- O validador do catálogo foi endurecido no commit `e5323258f4746c0786080290028e20d66ad72362` para identificar cada skill pendente por id, status e versão sem transformar pendência legítima em erro.
 
 ## Pendências técnicas não humanas
-- Nenhuma local após os portões de U-PGA-11.
+- Nenhuma local no PGA após U-PGA-12.
+- Externa ao PGA: `governanca-operacional-de-ambientes@0.1.4` permanece `em_curso` até existir uso real + binding humano concreto conforme seus próprios portões.
 
 ## Trabalho compartilhado
-- ponteiro: `manifesto.yaml.trabalho_compartilhado` — vazio após fechamento de U-PGA-11.
+- ponteiro: `manifesto.yaml.trabalho_compartilhado` — vazio após fechamento de U-PGA-12.
 
 ## Competências ativas nesta unidade
 - `pga-project@0.4.0` — skill de projeto.
@@ -33,21 +35,23 @@
 - `github-incremental-reconciliation@7`.
 - `governanca-ontologica-de-skills@1.0.5`.
 - `telemetry-data-visualization@2`.
+- `governanca-operacional-de-ambientes@0.1.4` — alvo auditado; permaneceu candidata.
 
 ## Competências instaladas para unidades futuras
 - Nenhuma alteração nesta unidade.
 
 ## Falhas de portão por tipo de entrada
-- `estrutura`: 1 divergência de namespace encontrada e corrigida em U10; gate reforçado para impedir recorrência.
-- `rastro`: 4 commits históricos U05/U06 com trailers incompletos identificados; artefatos re-auditados posteriormente; enforcement prospectivo instalado em U11 sem reescrever histórico.
-- `dados`: telemetria U04–U10 parseável e pareada; U10 preserva a não conformidade histórica de início tardio sem mascará-la como PASS.
+- `estrutura`: namespace fechado desde U10; sem regressão em U12.
+- `rastro`: enforcement prospectivo ativo desde U11; sem regressão em U12.
+- `catalogo-global`: `pending=1` classificado como legítimo; `CATALOGO_SKILLS=PASS`, `SYNC_GUARD=PASS` e gates ENV-GOV permanecem PASS com write produtivo diferido.
+- `dados`: telemetria U04–U11 parseável e pareada; U10 preserva a não conformidade histórica de início tardio sem mascará-la como PASS.
 
 ## Divergências da última reconciliação
-- corrigidas: U11 preservou o plano congelado U09, classificou os trailers incompletos U05/U06 como lacuna histórica já re-auditada e adicionou gate prospectivo de adesão sem reescrever Git.
-- pendentes de autorização: nenhuma.
+- corrigidas: ambiguidade operacional de `pending=1` removida do output do validador global; agora o item pendente é identificado explicitamente.
+- pendentes de autorização: nenhuma no PGA.
 
 ## Entradas aceitas
 - 1–33.
 
 ## Próxima unidade
-- Nenhuma unidade local pendente; nova unidade deve nascer de decisão/contrato posterior, sem reabrir a release `v1.0.0`.
+- Nenhuma unidade local pendente; nova unidade PGA deve nascer de decisão/contrato posterior, sem reabrir a release `v1.0.0`.
