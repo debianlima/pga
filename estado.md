@@ -12,29 +12,28 @@
 ## Decisões superadas
 - PGA 0.1.0 como estado de repouso standalone — superado pela release PGA 1.0.0.
 - `estado_release: triad_ready` — superado pela evidência contratualmente validada `maturity: homologated` da release 1.0.0.
-- H01 como pendência de vínculo/bootstrap — resolvida em 2026-09-02.
-- H02, H03, H04 e H05 como pendências de consolidação — resolvidas em 2026-09-02 por aprovação humana da opção A em cada decisão.
+- H01–H05 — fechadas em 2026-09-02; H02/H03/H04/H05 executadas pela opção A aprovada pelo usuário.
 
 ## Decisões humanas pendentes
 - Nenhuma local no PGA.
-- Nenhuma das consolidações H01–H05 permanece pendente.
+- Externa ao PGA: H06 em `projeto_dependencia` decide a consolidação dos serviços de anexos `lib/processAttachments.ts` e `lib/supabase/attachments.ts`; nenhuma remoção foi inferida.
 
 ## Decisões fechadas nesta emenda
-- H02-A: em `SentinelDevLima`, `src/agents/codebase-indexer.ts` foi removido e `src/indexer/codebase-indexer.ts` permaneceu canônico; skill atual `sentinel-dev-lima-project@0.1.2`; gate final publicado em `8418f8f5403a86b93b3b0d38be38fdb145fd0ef5`.
-- H03-A: em `projeto_dependencia`, `store/should-deploy.js` foi removido e `scripts/should-deploy.js` permaneceu canônico; skill atual `projeto-dependencia-project@0.1.2`; gate final publicado em `b89872fb9e2360296fb6596834135f35db424baa`.
-- H04-A: em `controle_matheus_eng_docentes`, `docs/README_SUBSTITUIR_ARQUIVOS_COMPLETOS.md` foi removido e `docs/DEPLOY_MANUAL_SUAP_SEM_PONTO_COMPLETO.md` permaneceu canônico.
-- H05-A: em `controle_matheus_eng_docentes`, `sql/insercao_funcionando.sql` foi removido e `sql/999_dados_demonstracao.sql` permaneceu canônico; `sql/ORDEM_REAL_MIGRATIONS_P3.md` foi reconciliado; skill atual `controle-matheus-eng-docentes-project@0.1.2`; gate final publicado em `d8985f00cef1be7b1dc4709df410dc25e7cd9fea`.
-- Catálogo global reconciliado em `92ea5c638034e5e57cd88433b978b878478e5259` com as três skills em `0.1.2`; `CATALOGO_SKILLS=PASS` e `SYNC_GUARD=PASS`.
+- `SentinelDevLima` avançou para `sentinel-dev-lima-project@0.1.3` em `8dd25727febf99a1eeb1b2469c896e0029ed046f`: README arquitetural aceito; typecheck ampliado para `src` + `api`; webhook corrigido para raw-body/HMAC antes de JSON parse; embedding reconciliado em Gemini/768; 11 de 22 entradas aceitas e 11 `preexistente`.
+- `projeto_dependencia` avançou para `projeto-dependencia-project@0.1.3` em `aa0129a00213e4e7142fa74d4aa63f4566eeaef2`: README e `ORIENTACOES_REUSO.md` aceitos; store principal confirmado como Zustand/localStorage iniciado por mocks; Supabase confirmado como integração parcial de anexos; 12 de 76 entradas aceitas e 64 `preexistente`; H06 permaneceu pendente.
+- `controle_matheus_eng_docentes` permanece em `controle-matheus-eng-docentes-project@0.1.2`, commit verificável `d8985f00cef1be7b1dc4709df410dc25e7cd9fea`: 11 de 141 entradas atuais aceitas e 130 `preexistente`; H04/H05 fechadas.
+- Catálogo global reconciliado em `708922c00bcb84e8ee5f2f5d0a2af617af209652`; `CATALOGO_SKILLS=PASS accepted=83 pending=1 canonical=83` e `SYNC_GUARD=PASS`.
 
 ## Pendências técnicas não humanas
-- Nenhuma local no PGA após U-PGA-15.
-- `SentinelDevLima`: 12 entradas preexistentes permanecem sem portão completo; Node/typecheck e integrações externas ainda não foram homologados neste host.
-- `projeto_dependencia`: 66 entradas preexistentes permanecem; lockfile continua divergente de `package.json` e build/lint/typecheck seguem não verificados neste host.
-- `controle_matheus_eng_docentes`: 130 entradas preexistentes permanecem; README segue divergente da árvore atual e build/lint/typecheck/Vercel/Supabase/SUAP ainda exigem gates próprios.
+- Nenhuma local no PGA após U-PGA-16.
+- `SentinelDevLima`: 11 entradas `preexistente`; typecheck/runtime Node, execução GitHub Actions e migrations PostgreSQL/pgvector ainda não homologados no ambiente disponível.
+- `projeto_dependencia`: 64 entradas `preexistente`; lockfile diverge de `package.json`, store geral continua mock/localStorage e Supabase/RLS/sessão real exigem gate externo; U-DEPENDENCIA-03 preserva `TELEMETRY_ORDER=FAIL_RECORDED` porque leitura/clone read-only precederam o início instrumentado.
+- `controle_matheus_eng_docentes`: 130 entradas `preexistente`; README/build/Vercel/Supabase/SUAP ainda exigem reconciliação/gates próprios.
 - `governanca-operacional-de-ambientes@0.1.4` permanece `em_curso` por seus próprios portões de uso real/binding concreto.
+- O filesystem do host continua sob forte pressão de espaço; falhas `ENOSPC` foram observadas durante commit temporário do EduMonitor, sem perda de dados publicados.
 
 ## Trabalho compartilhado
-- ponteiro: `manifesto.yaml.trabalho_compartilhado` — vazio após fechamento U-PGA-15.
+- ponteiro: `manifesto.yaml.trabalho_compartilhado` — vazio após fechamento U-PGA-16.
 
 ## Competências ativas nesta unidade
 - `pga-project@0.4.0`.
@@ -43,24 +42,26 @@
 - `governanca-ontologica-de-skills@1.0.5`.
 - `telemetry-data-visualization@2`.
 - `controle-matheus-eng-docentes-project@0.1.2`.
-- `projeto-dependencia-project@0.1.2`.
-- `sentinel-dev-lima-project@0.1.2`.
+- `projeto-dependencia-project@0.1.3`.
+- `sentinel-dev-lima-project@0.1.3`.
 
 ## Competências instaladas para unidades futuras
-- As três skills de projeto acima permanecem referências canônicas no catálogo; competências adicionais só entram por lacuna de cobertura ou falha de portão comprovada.
+- As três skills acima permanecem referências canônicas no catálogo; competências adicionais só entram por lacuna real de cobertura ou falha de portão comprovada.
 
 ## Falhas de portão por tipo de entrada
 - `estrutura PGA`: PASS.
+- `release PGA 1.0`: PASS; release não foi reaberta.
 - `catálogo`: `CATALOGO_SKILLS=PASS accepted=83 pending=1 canonical=83`; `SYNC_GUARD=PASS`.
-- `consolidação de árvore`: H02/H03/H04/H05 PASS, com referências operacionais obsoletas removidas ou reconciliadas.
-- `execução Node`: NAO_VERIFICADO neste host por falha nativa já registrada; não foi usada como aprovação nem reprovação de código.
+- `Sentinel`: documentação/estrutura de webhook/typecheck/embedding reconciliadas; executores externos permanecem `NAO_VERIFICADO`.
+- `EduMonitor`: documentação/reuso PASS; arquitetura store/mock e Supabase parcial classificada; H06 pendente; `TELEMETRY_ORDER=FAIL_RECORDED` preservado.
+- `Controle Docente`: H04/H05 permanecem fechadas; demais integrações não foram promovidas por leitura.
 
 ## Divergências da última reconciliação
-- corrigidas: H02–H05 fechadas, skills atualizadas para 0.1.2 e catálogo sincronizado.
-- pendentes de autorização: nenhuma local no PGA.
+- corrigidas: snapshot central atualizado de skills `0.1.2` para Sentinel/EduMonitor `0.1.3`, contagens reconciliadas e H06 registrada como fronteira humana externa.
+- pendentes de autorização: nenhuma local no PGA; H06 apenas no contexto EduMonitor.
 
 ## Entradas aceitas
 - 1–33.
 
 ## Próxima unidade
-- PGA não possui unidade local pendente. A continuidade operacional deve auditar os artefatos preexistentes restantes nos três projetos por domínio e portão, sem promoção em massa.
+- PGA não possui unidade local pendente. Continuidade recomendada: executar gates externos/Node/PostgreSQL dos projetos e resolver H06 quando houver decisão humana, sem promoção em massa.
