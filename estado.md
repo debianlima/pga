@@ -17,15 +17,15 @@
 - Nenhuma.
 
 ## Decisões fechadas nesta emenda
-- U-PGA-10 reconciliou o namespace do manifesto com `git ls-files`, declarou `dados/telemetria-unidades.jsonl` e tornou essa igualdade verificável em `tests/verify_project.py`.
-- U-PGA-10 consolidou este arquivo como snapshot atual, removendo blocos históricos acumulados e estados de execução já encerrados.
-- U-PGA-10 alinhou `manifesto.yaml.estado_release` a `homologated`, conforme a evidência validada por `contratos/pga-1.0/release.schema.json`.
+- U-PGA-11 preservou o plano congelado `pga-project@0.3.0` da U09 como procedência histórica; ele não é divergência frente à skill atual `0.4.0`.
+- U-PGA-11 auditou o rastro pós-release: quatro commits U05/U06 têm trailers históricos incompletos (`Skill`/`Maquina`), mas seus artefatos foram posteriormente reexecutados e homologados por U07–U09; o histórico publicado não foi reescrito.
+- U-PGA-11 adicionou verificação prospectiva de trailers e correspondência `Entrada`↔arquivos a partir do fechamento U10 (`871f0294...`).
 
 ## Pendências técnicas não humanas
-- Nenhuma local após os portões de U-PGA-10.
+- Nenhuma local após os portões de U-PGA-11.
 
 ## Trabalho compartilhado
-- ponteiro: `manifesto.yaml.trabalho_compartilhado` — vazio após fechamento de U-PGA-10.
+- ponteiro: `manifesto.yaml.trabalho_compartilhado` — vazio após fechamento de U-PGA-11.
 
 ## Competências ativas nesta unidade
 - `pga-project@0.4.0` — skill de projeto.
@@ -38,11 +38,12 @@
 - Nenhuma alteração nesta unidade.
 
 ## Falhas de portão por tipo de entrada
-- `estrutura`: 1 divergência de namespace encontrada e corrigida; gate reforçado para impedir recorrência.
-- `dados`: telemetria histórica U04–U09 parseável e pareada; U10 registra explicitamente que o evento de início foi tardio nesta execução.
+- `estrutura`: 1 divergência de namespace encontrada e corrigida em U10; gate reforçado para impedir recorrência.
+- `rastro`: 4 commits históricos U05/U06 com trailers incompletos identificados; artefatos re-auditados posteriormente; enforcement prospectivo instalado em U11 sem reescrever histórico.
+- `dados`: telemetria U04–U10 parseável e pareada; U10 preserva a não conformidade histórica de início tardio sem mascará-la como PASS.
 
 ## Divergências da última reconciliação
-- corrigidas: `dados/telemetria-unidades.jsonl` declarado como entrada 33; `estado.md` convertido em snapshot; `estado_release` alinhado a `homologated`; `verify_project.py` passou a verificar namespace fechado e pares de telemetria.
+- corrigidas: U11 preservou o plano congelado U09, classificou os trailers incompletos U05/U06 como lacuna histórica já re-auditada e adicionou gate prospectivo de adesão sem reescrever Git.
 - pendentes de autorização: nenhuma.
 
 ## Entradas aceitas
