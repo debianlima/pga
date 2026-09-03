@@ -5,18 +5,7 @@ release_alvo: v1.0.0
 estado_release: homologated
 repositorio: debianlima/pga
 skill_projeto: skills/pga/SKILL.md
-trabalho_compartilhado:
-  projeto: pga
-  caminho: /tmp/pga-hd-canonical-reconcile
-  unidade: U-PGA-17-CANONICAL-TELEMETRY-RECONCILIATION
-  descricao: fechar prospectivamente rastro incompleto U-PGA-16 sem promover auditoria externa
-  agente: Meu-Terminal-Oracle
-  atualizado_em: '2026-09-03T04:03:55Z'
-  previsao_termino: '2026-09-03T04:48:55Z'
-  zona_exclusao:
-  - manifesto.yaml
-  - estado.md
-  - dados/telemetria-unidades.jsonl
+trabalho_compartilhado: {}
 entradas:
 - id: 1
   caminho: README.md

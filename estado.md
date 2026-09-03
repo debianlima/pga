@@ -25,7 +25,7 @@
 - Catálogo global reconciliado em `708922c00bcb84e8ee5f2f5d0a2af617af209652`; `CATALOGO_SKILLS=PASS accepted=83 pending=1 canonical=83` e `SYNC_GUARD=PASS`.
 
 ## Pendências técnicas não humanas
-- Nenhuma local no PGA após U-PGA-16.
+- Nenhuma local no PGA após U-PGA-17; o rastro incompleto da auditoria Sentinel U-PGA-16 foi fechado prospectivamente como `ABORTED_INCOMPLETE_HISTORICAL_NO_PROMOTION`, sem promover estado externo.
 - `SentinelDevLima`: 11 entradas `preexistente`; typecheck/runtime Node, execução GitHub Actions e migrations PostgreSQL/pgvector ainda não homologados no ambiente disponível.
 - `projeto_dependencia`: 64 entradas `preexistente`; lockfile diverge de `package.json`, store geral continua mock/localStorage e Supabase/RLS/sessão real exigem gate externo; U-DEPENDENCIA-03 preserva `TELEMETRY_ORDER=FAIL_RECORDED` porque leitura/clone read-only precederam o início instrumentado.
 - `controle_matheus_eng_docentes`: 130 entradas `preexistente`; README/build/Vercel/Supabase/SUAP ainda exigem reconciliação/gates próprios.
@@ -33,7 +33,7 @@
 - O filesystem do host continua sob forte pressão de espaço; falhas `ENOSPC` foram observadas durante commit temporário do EduMonitor, sem perda de dados publicados.
 
 ## Trabalho compartilhado
-- ponteiro: `manifesto.yaml.trabalho_compartilhado` — vazio após fechamento U-PGA-16.
+- ponteiro: `manifesto.yaml.trabalho_compartilhado` — vazio após fechamento U-PGA-17.
 
 ## Competências ativas nesta unidade
 - `pga-project@0.4.0`.
@@ -65,3 +65,10 @@
 
 ## Próxima unidade
 - PGA não possui unidade local pendente. Continuidade recomendada: executar gates externos/Node/PostgreSQL dos projetos e resolver H06 quando houver decisão humana, sem promoção em massa.
+## U-PGA-17 — reconciliação canônica de telemetria incompleta
+- base canônica GitHub observada: `b8ee38c1a60e43c4bab61ec21b9c9f302418c1bc`, a mesma identidade congelada pelo fixed point PGH U284.
+- `U-PGA-16-EXTERNAL-AUDIT-SNAPSHOT-RECONCILIATION` permanece histórico com início/fim próprios e não é reexecutado.
+- `U-PGA-16-SENTINEL-WORKFLOW-WEBHOOK-MIGRATION-AUDIT` possuía somente `telemetria_inicio`; ausência de evidência de conclusão foi preservada e o evento foi encerrado agora como `ABORTED_INCOMPLETE_HISTORICAL_NO_PROMOTION`.
+- os dados externos de Sentinel/EduMonitor/Controle Docente presentes no snapshot `b8ee38c1...` são observações históricas daquele corte, não autoridade viva nem promoção automática.
+- fronteiras PGA/PGDMD permanecem inalteradas: `PGDMD_ACCESSORY_OF_PGA`, sem scheduler/runtime/grants próprios; Project-Skill permanece `pga-project@0.4.0`.
+- `DELTA_INVENTORY=PASS`; `LEARNING_PRESERVED=PASS`; nenhum force-push e nenhuma tag histórica alterada.
